@@ -11,6 +11,6 @@ Written in 2015 during highschool. Obviously very badly written and badly mainta
 * clean up codebase to not include the foobar2k client itself, only files related to the theme.
 * clean up unneccessary & unused script files derived from other themes.
 * export a final clean fcl file.
-* expand this README
+* expand this README. rofl.
 
 
