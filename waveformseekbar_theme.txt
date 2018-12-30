@@ -1,0 +1,141 @@
+texture tex : WAVEFORMDATA;
+
+sampler sTex = sampler_state
+{
+	Texture = (tex);
+	MipFilter = LINEAR;
+	MinFilter = LINEAR;
+	MagFilter = LINEAR;
+	
+	AddressU = Clamp;
+};
+
+struct VS_IN
+{
+	float2 pos : POSITION;
+	float2 tc : TEXCOORD0;
+};
+
+struct PS_IN
+{
+	float4 pos : SV_POSITION;
+	float2 tc : TEXCOORD0;
+};
+
+
+float4 backgroundColor : BACKGROUNDCOLOR;
+float4 highlightColor  : HIGHLIGHTCOLOR;
+float4 selectionColor  : SELECTIONCOLOR;
+float4 textColor       : TEXTCOLOR;
+float cursorPos        : CURSORPOSITION;
+bool cursorVisible     : CURSORVISIBLE;
+float seekPos          : SEEKPOSITION;
+bool seeking           : SEEKING;
+float4 replayGain      : REPLAYGAIN; // album gain, track gain, album peak, track peak
+float2 viewportSize    : VIEWPORTSIZE;
+bool horizontal        : ORIENTATION;
+bool flipped           : FLIPPED;
+bool shade_played      : SHADEPLAYED;
+float3 track_magnitude  : TRACKMAGNITUDE;
+
+PS_IN VS( VS_IN input )
+{
+	PS_IN output = (PS_IN)0;
+
+	float2 half_pixel = float2(1,-1) / viewportSize;
+	output.pos = float4(input.pos - half_pixel, 0, 1);
+
+	if (horizontal)
+		output.tc = float2((input.tc.x + 1.0) / 2.0, input.tc.y);
+	else
+		output.tc = float2((-input.tc.y + 1.0) / 2.0, input.tc.x);
+
+	if (flipped)
+		output.tc.x = 1.0 - output.tc.x;
+
+	return output;
+}
+
+float4 bar( float pos, float2 tc, float4 fg, float4 bg, float width, bool show )
+{
+	float dist = abs(pos - tc.x);
+	float4 c = (show && dist < width)
+		? lerp(fg, bg, smoothstep(0, width, dist))
+		: bg;
+	return c;
+}
+
+float4 evaluate( float2 tc, float cursorPos )
+{
+	// alpha 1 indicates biased texture
+	float4 minmaxrms = tex1D(sTex, tc.x);
+	minmaxrms.rgb -= 0.5 * minmaxrms.a;
+	minmaxrms.rgb *= 1.0 + minmaxrms.a;
+	float below = tc.y - minmaxrms.r;
+	float above = tc.y - minmaxrms.g;
+	float factor = min(abs(below), abs(above));
+	bool outside = (below < 0 || above > 0);
+	bool inside_rms = abs(tc.y) <= minmaxrms.b;
+	bool played = cursorPos < tc.x;
+	float4 inside_color = played ? textColor : highlightColor;
+	float4 bgColor = backgroundColor;
+
+	float4 wave = outside
+		? bgColor
+		: inside_color
+		;
+
+	return saturate(wave);
+}
+
+float4 reflect_evaluate( float2 tc, float cursorPos)
+{
+	float baseline = -1.0/3.0;
+	float low_unscale = 3.0/2.0;
+	float high_unscale = 3.0/4.0;
+	bool mirrored = tc.y < baseline;
+	if (mirrored) {
+		tc.y = baseline - tc.y;
+		tc.y = tc.y * low_unscale;
+	}
+	else {
+		tc.y = tc.y - baseline;
+		tc.y = tc.y * high_unscale;
+	}
+	float mag = max(-track_magnitude.r, track_magnitude.g);
+	if (mag > 0.95) {
+		tc.y = lerp(0, mag/0.95, tc.y);
+	}
+	float boost = mirrored ? 1.3 : 1.0;
+	float gradient = lerp(0.7, 1.0, tc.y);
+	return boost * gradient * evaluate(tc, cursorPos);
+}
+
+float4 PS( PS_IN input ) : SV_Target
+{
+	float dx, dy;
+	if (horizontal) {
+		dx = 1/viewportSize.x;
+		dy = 1/viewportSize.y;
+	}
+	else {
+		dx = 1/viewportSize.y;
+		dy = 1/viewportSize.x;
+	}
+	float seekWidth = 2.5 * dx;
+	float positionWidth = 2.5 * dx;
+
+	float4 c0 = reflect_evaluate(input.tc, cursorPos);
+	c0 = bar(cursorPos, input.tc, selectionColor, c0, positionWidth, cursorVisible);
+	c0 = bar(seekPos,   input.tc, selectionColor, c0, seekWidth,     seeking      );
+	return c0;
+}
+
+technique Render9
+{
+	pass
+	{
+		VertexShader = compile vs_2_0 VS();
+		PixelShader = compile ps_2_0 PS();
+	}
+}

@@ -1,0 +1,267 @@
+<foo_upnp plugin_version="0.99.49" format_version="0.99.42">
+  <console_log enabled="no" level="4" log_to_file="no"></console_log>
+  <browser>
+    <recurse_loaded_nodes>no</recurse_loaded_nodes>
+    <fetch_album_art>yes</fetch_album_art>
+    <sort_incoming>no</sort_incoming>
+    <sort_incoming_string>%album artist%|$if($not($meta(album artist)),%date%)|%album%|%discnumber%|%tracknumber%|%title%</sort_incoming_string>
+    <tree_lclick_action>4</tree_lclick_action>
+    <tree_rclick_action>5</tree_rclick_action>
+    <search_action>2</search_action>
+    <http_proxy></http_proxy>
+    <autoreconnect_host hostname="" login="" password=""/>
+    <add_server_dialog_host hostname="" login="" password=""/>
+    <remote_transcode_override>no</remote_transcode_override>
+    <remote_transcode_max_audio_bitrate>320</remote_transcode_max_audio_bitrate>
+    <remote_transcode_video_quality_index>0</remote_transcode_video_quality_index>
+  </browser>
+  <server show_playlists="yes" show_media_library="yes" show_playback_stream_capture="yes">
+    <name>John's foobar Server</name>
+    <port>56923</port>
+    <started>yes</started>
+    <stream_album_art>yes</stream_album_art>
+    <max_tree_subnodes enabled="no">500</max_tree_subnodes>
+    <artist_swapprefix>yes</artist_swapprefix>
+    <allow_wan_access>no</allow_wan_access>
+    <wan_host hostname="" login="" password=""/>
+    <track_title_spec>%title%</track_title_spec>
+    <profiles>
+      <profile name="Default" id="0">
+        <http_headers names="User-Agent" substrings=""></http_headers>
+        <client_decode_http_stream>no</client_decode_http_stream>
+        <allow_submit_stats>yes</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="yes">
+          <mode except_exts="" except_types="lossless,internet">never</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>wav</codec>
+          <mode except_exts="mp3,wma,aac,m4a">always</mode>
+          <samplerate min="44100" max="44100"></samplerate>
+          <convert_to_stereo>yes</convert_to_stereo>
+          <max_bitdepth>16</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="wav" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+      <profile name="foobar2000" id="1">
+        <http_headers names="User-Agent" substrings="foobar2000"></http_headers>
+        <client_decode_http_stream>yes</client_decode_http_stream>
+        <allow_submit_stats>yes</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="yes">
+          <mode except_exts="" except_types="lossless,internet">never</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>wav</codec>
+          <mode except_exts="mpc,xa">never</mode>
+          <samplerate min="11025" max="2822400"></samplerate>
+          <convert_to_stereo>no</convert_to_stereo>
+          <max_bitdepth>24</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="wav" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+      <profile name="PlugPlayer" id="2">
+        <http_headers names="User-Agent" substrings="PlugPlayer (iOS)"></http_headers>
+        <client_decode_http_stream>no</client_decode_http_stream>
+        <allow_submit_stats>yes</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="yes">
+          <mode except_exts="mp3,aac,m4a,ogg,flac" except_types="">always</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>wav</codec>
+          <mode except_exts="">never</mode>
+          <samplerate min="11025" max="48000"></samplerate>
+          <convert_to_stereo>yes</convert_to_stereo>
+          <max_bitdepth>16</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="wav" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+      <profile name="JRiver Media Center" id="3">
+        <http_headers names="User-Agent" substrings="JRiver|J. River"></http_headers>
+        <client_decode_http_stream>yes</client_decode_http_stream>
+        <allow_submit_stats>yes</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="yes">
+          <mode except_exts="" except_types="lossless,internet">never</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>wav</codec>
+          <mode except_exts="mpc,xa">never</mode>
+          <samplerate min="11025" max="192000"></samplerate>
+          <convert_to_stereo>no</convert_to_stereo>
+          <max_bitdepth>24</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="wav" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+      <profile name="PlayStation 3" id="4">
+        <http_headers names="User-Agent|X-AV-Client-Info" substrings="PLAYSTATION 3"></http_headers>
+        <client_decode_http_stream>yes</client_decode_http_stream>
+        <allow_submit_stats>yes</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="no">
+          <mode except_exts="" except_types="lossless,internet">never</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>lpcm</codec>
+          <mode except_exts="">always</mode>
+          <samplerate min="44100" max="48000"></samplerate>
+          <convert_to_stereo>yes</convert_to_stereo>
+          <max_bitdepth>16</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="lpcm" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+      <profile name="Xbox 360" id="5">
+        <http_headers names="User-Agent" substrings="Xenon|Xbox"></http_headers>
+        <client_decode_http_stream>no</client_decode_http_stream>
+        <allow_submit_stats>yes</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="yes">
+          <mode except_exts="" except_types="lossless,internet">never</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>lpcm</codec>
+          <mode except_exts="mp3,wma,aac,m4a">always</mode>
+          <samplerate min="44100" max="48000"></samplerate>
+          <convert_to_stereo>yes</convert_to_stereo>
+          <max_bitdepth>16</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="lpcm" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+      <profile name="Linn DS" id="6">
+        <http_headers names="User-Agent" substrings="Linn|ChorusDS|BubbleDS"></http_headers>
+        <client_decode_http_stream>yes</client_decode_http_stream>
+        <allow_submit_stats>yes</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="yes">
+          <mode except_exts="" except_types="lossless,internet">never</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>wav</codec>
+          <mode except_exts="mp3,m4a,wav,flac,wma,aiff">always</mode>
+          <samplerate min="11025" max="192000"></samplerate>
+          <convert_to_stereo>yes</convert_to_stereo>
+          <max_bitdepth>24</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="wav" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+      <profile name="BubbleUPnP" id="7">
+        <http_headers names="User-Agent" substrings="BubbleUPnP"></http_headers>
+        <client_decode_http_stream>no</client_decode_http_stream>
+        <allow_submit_stats>no</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="yes">
+          <mode except_exts="" except_types="lossless,internet">never</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>wav</codec>
+          <mode except_exts="mp3,aac,m4a,wav,flac,ogg,wma">always</mode>
+          <samplerate min="11025" max="48000"></samplerate>
+          <convert_to_stereo>yes</convert_to_stereo>
+          <max_bitdepth>16</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="wav" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+      <profile name="Windows Media Player" id="8">
+        <http_headers names="User-Agent" substrings="Windows-Media-Player|WMFSDK|Windows Media Player"></http_headers>
+        <client_decode_http_stream>no</client_decode_http_stream>
+        <allow_submit_stats>no</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="yes">
+          <mode except_exts="" except_types="lossless,internet">never</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>lpcm</codec>
+          <mode except_exts="mp3,wma,aac,m4a">always</mode>
+          <samplerate min="11025" max="192000"></samplerate>
+          <convert_to_stereo>no</convert_to_stereo>
+          <max_bitdepth>24</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="lpcm" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+      <profile name="UPnPlay" id="9">
+        <http_headers names="User-Agent" substrings="UPnPlay"></http_headers>
+        <client_decode_http_stream>no</client_decode_http_stream>
+        <allow_submit_stats>no</allow_submit_stats>
+        <return_buggy_track_length>no</return_buggy_track_length>
+        <mp3_transcode supported="yes">
+          <mode except_exts="" except_types="lossless,internet">never</mode>
+          <type>cbr</type>
+          <vbr_quality>0</vbr_quality>
+          <abr_cbr_bitrate>320</abr_cbr_bitrate>
+        </mp3_transcode>
+        <pcm_decode>
+          <codec>wav</codec>
+          <mode except_exts="mp3,aac,m4a,wav,flac,ogg,wma">always</mode>
+          <samplerate min="11025" max="48000"></samplerate>
+          <convert_to_stereo>yes</convert_to_stereo>
+          <max_bitdepth>16</max_bitdepth>
+        </pcm_decode>
+        <dsp_chain_conf>AAAAAA==</dsp_chain_conf>
+        <playback_stream_capture codec="wav" bitdepth="16" samplerate="44100"></playback_stream_capture>
+        <replaygain source_mode="0" processing_mode="0" preamp_without_rg="0.000000" preamp_with_rg="0.000000" decoded_and_transcoded_only="no"></replaygain>
+      </profile>
+    </profiles>
+    <use_default_profile>no</use_default_profile>
+    <dithering>yes</dithering>
+    <submit_stats>yes</submit_stats>
+    <stream_disable_write_timeout>no</stream_disable_write_timeout>
+    <track_artist_spec>%artist%</track_artist_spec>
+    <add_compat_stream_urls>yes</add_compat_stream_urls>
+  </server>
+  <renderer>
+    <name>John's foobar Renderer</name>
+    <started>yes</started>
+  </renderer>
+  <controller>
+    <track_info_spec>$if([%artist%],%artist% - )%title% | %codec% | %bitrate% kbps | %samplerate% Hz</track_info_spec>
+    <startup_renderer udn="" source=""/>
+    <enable_gapless_control>yes</enable_gapless_control>
+  </controller>
+  <renderers/>
+</foo_upnp>

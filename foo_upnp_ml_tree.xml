@@ -1,0 +1,28 @@
+<MediaLibraryTree>
+	<SubTree label="Albums">
+		<spec type="object.container.album.musicAlbum">%album%[ '['%album artist%']']</spec>
+	</SubTree>
+	<SubTree label="Artists">
+		<spec type="object.container.person.musicArtist">%artist%</spec>
+		<spec type="object.container.album.musicAlbum">%album%</spec>
+	</SubTree>
+	<SubTree label="Album Artists">
+		<spec type="object.container.album.musicAlbum">[%album artist% - ]['['%date%']' ]%album%</spec>
+	</SubTree>
+	<SubTree label="Genres">
+		<spec type="object.container.genre.musicGenre">%&lt;genre&gt;%</spec>
+		<spec type="object.container.album.musicAlbum">[%album artist% - ]%album%</spec>
+	</SubTree>
+	<SubTree label="Years">
+		<spec>%date%</spec>
+		<spec type="object.container.album.musicAlbum">[%album artist% - ]%album%</spec>
+	</SubTree>
+	<SubTree label="Compilations" query="compilation PRESENT">
+		<spec type="object.container.album.musicAlbum">[%album artist% - ]%album%</spec>
+	</SubTree>
+	<SubTree label="Codecs">
+		<spec>%codec%</spec>
+		<spec type="object.container.album.musicAlbum">[%album artist% - ]%album%</spec>
+	</SubTree>
+	<SubTree label="Folders" type="filesystem"/>
+</MediaLibraryTree>

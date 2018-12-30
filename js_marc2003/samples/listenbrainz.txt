@@ -1,0 +1,49 @@
+// ==PREPROCESSOR==
+// @name "Listenbrainz"
+// @author "marc2003"
+// @import "%fb2k_profile_path%js_marc2003\js\lodash.min.js"
+// @import "%fb2k_profile_path%js_marc2003\js\helpers.js"
+// @import "%fb2k_profile_path%js_marc2003\js\panel.js"
+// @import "%fb2k_profile_path%js_marc2003\js\listenbrainz.js"
+// ==/PREPROCESSOR==
+
+// Before using this script, please read this:
+// https://github.com/19379/js-marc2003/wiki/Listenbrainz
+
+var panel = new _.panel("Listenbrainz", ["custom_background"]);
+var buttons = new _.buttons();
+var listenbrainz = new _.listenbrainz(2, 2, 32);
+listenbrainz.update_button();
+
+function on_size() {
+	panel.size();
+}
+
+function on_paint(gr) {
+	panel.paint(gr);
+	buttons.paint(gr);
+}
+
+function on_playback_new_track() {
+	listenbrainz.playback_new_track();
+}
+
+function on_playback_time() {
+	listenbrainz.playback_time();
+}
+
+function on_mouse_move(x, y) {
+	buttons.move(x, y);
+}
+
+function on_mouse_leave() {
+	buttons.leave();
+}
+
+function on_mouse_lbtn_up(x, y) {
+	buttons.lbtn_up(x, y);
+}
+
+function on_mouse_rbtn_up(x, y) {
+	return panel.rbtn_up(x, y);
+}

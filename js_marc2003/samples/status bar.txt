@@ -1,0 +1,119 @@
+// ==PREPROCESSOR==
+// @name "Status Bar"
+// @author "marc2003"
+// @import "%fb2k_profile_path%js_marc2003\js\lodash.min.js"
+// @import "%fb2k_profile_path%js_marc2003\js\helpers.js"
+// ==/PREPROCESSOR==
+
+var left_text_tf = "%playback_time%[ / %length%] :: %__bitrate% kbps %codec% [%codec_profile% ][%__tool% ][%__tagtype% ]";
+var bg = _.RGB(240, 240, 240);
+var text_colour = _.RGB(0, 0, 0);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var show_volume = window.GetProperty("2K3.STATUS.SHOW.VOLUME", true);
+var font = _.gdiFont("Segoe UI", 11);
+var ww = 0;
+var wh = 0;
+var count = 0;
+var right_text = "";
+var right_text_width = 0;
+refresh();
+
+function on_size() {
+	ww = window.Width;
+	wh = window.Height;
+}
+
+function on_paint(gr) {
+	gr.FillSolidRect(0, 0, ww, wh, bg);
+	if (fb.IsPlaying)
+		gr.GdiDrawText(_.tfe(left_text_tf), font, text_colour, 5, -1, ww - right_text_width - (show_volume ? 180: 50), font.Height, LEFT);
+	if (count > 0)
+		gr.GdiDrawText(right_text, font, text_colour, 0, -1, ww - (show_volume ? 130 : 5), font.Height, RIGHT);
+	if (show_volume)
+		gr.GdiDrawText(fb.Volume.toFixed(2) + " dB", font, text_colour, 0, -1, ww - 5, font.Height, RIGHT);
+}
+
+function on_playback_time() {
+	window.Repaint();
+}
+
+function on_playback_stop() {
+	window.Repaint();
+}
+
+function on_volume_change() {
+	window.Repaint();
+}
+
+function on_mouse_wheel(s) {
+	if (!show_volume)
+		return;
+	if (s == 1)
+		fb.VolumeUp();
+	else
+		fb.VolumeDown();
+}
+
+function on_mouse_lbtn_dblclk() {
+	fb.RunMainMenuCommand("View/Show now playing in playlist");
+}
+
+function on_mouse_rbtn_up(x, y) {
+	if (utils.IsKeyPressed(VK_SHIFT))
+		return false;
+	var m = window.CreatePopupMenu();
+	var c = fb.CreateContextMenuManager();
+	if (fb.IsPlaying) {
+		c.InitNowPlaying();
+		c.BuildMenu(m, 1, -1);
+		m.AppendMenuSeparator();
+	}
+	m.AppendMenuItem(MF_STRING, 10000, "Show volume");
+	m.CheckMenuItem(10000, show_volume);
+	m.AppendMenuSeparator();
+	m.AppendMenuItem(MF_STRING, 10001, "Configure...");
+	var idx = m.TrackPopupMenu(x, y);
+	switch (true) {
+	case idx == 0:
+		break;
+	case idx == 10000:
+		show_volume = !show_volume;
+		window.SetProperty("2K3.STATUS.SHOW.VOLUME", show_volume);
+		window.Repaint();
+		break;
+	case idx == 10001:
+		window.ShowConfigure();
+		break;
+	default:
+		c.ExecuteByID(idx - 1);
+		break;
+	}
+	m.Dispose();
+	c.Dispose();
+	return true;
+}
+
+function on_playlist_items_added(p) {
+	if (p == plman.ActivePlaylist)
+		refresh();
+}
+
+function on_playlist_items_removed(p) {
+	if (p == plman.ActivePlaylist)
+		refresh();
+}
+
+function on_playlist_switch() {
+	refresh();
+}
+
+function refresh() {
+	var items = plman.GetPlaylistItems(plman.ActivePlaylist);
+	count = items.Count;
+	right_text = count + (count == 1 ? " track :: " : " tracks :: ") + utils.FormatDuration(items.CalcTotalDuration()) + " :: " + utils.FormatFileSize(items.CalcTotalSize());
+	right_text_width = _.textWidth(right_text, font);
+	window.Repaint();
+	items.Dispose();
+}

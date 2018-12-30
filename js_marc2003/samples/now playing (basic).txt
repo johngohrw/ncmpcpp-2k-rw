@@ -1,0 +1,96 @@
+// ==PREPROCESSOR==
+// @name "np_basic"
+// @author "marc2003"
+// @import "%fb2k_profile_path%js_marc2003\js\lodash.min.js"
+// @import "%fb2k_profile_path%js_marc2003\js\helpers.js"
+// @import "%fb2k_profile_path%js_marc2003\js\panel.js"
+// @import "%fb2k_profile_path%js_marc2003\js\thumbs.js"
+// @import "%fb2k_profile_path%js_marc2003\js\text.js"
+// ==/PREPROCESSOR==
+
+//the track info section displays 3 lines of title formatted text. you can customise that here/////////////////////////////////////////////
+var line1 = {
+	text: "", //leave this blank
+	tf: "%artist%", //enter any title formatting
+	font: _.gdiFont("Segoe UI", 20, 1), //font name, size, style. 1 means bold and 0 is normal.
+	colour: _.RGB(240, 240, 240), //colour
+	y: 0 //change this value to move text up or down.
+}
+var line2 = {
+	text: "",
+	tf: "%title%",
+	font: _.gdiFont("Segoe UI", 16, 1),
+	colour: _.RGB(210, 210, 210),
+	y: 30
+}
+var line3 = {
+	text: "",
+	tf: "[%album% ]['('%date%')']",
+	font: _.gdiFont("Segoe UI", 14, 1),
+	colour: _.RGB(180, 180, 180),
+	y: 55
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var panel = new _.panel("np_basic", ["metadb", "remap", "custom_background"]);
+var text = new _.text("lastfm_bio", 20, 0, 0, 0);
+var thumbs = new _.thumbs();
+thumbs.mode = 5;
+
+var bar_h = 80;
+
+panel.item_focus_change();
+
+function on_size() {
+	panel.size();
+	thumbs.size();
+	text.y = _.floor(panel.h * 0.75);
+	text.w = panel.w - 40
+	text.h = panel.h - text.y - 5;
+	text.size();
+}
+
+function on_paint(gr) {
+	panel.colours.text = _.RGB(220, 220, 220);
+	panel.paint(gr);
+	thumbs.paint(gr);
+	gr.FillSolidRect(0, 0, panel.w, bar_h, _.RGBA(0, 0, 0, 196));
+	gr.GdiDrawText(line1.text, line1.font, line1.colour, 10, line1.y, panel.w - 20, line1.font.Height, LEFT);
+	gr.GdiDrawText(line2.text, line2.font, line2.colour, 10, line2.y, panel.w - 20, line2.font.Height, LEFT);
+	gr.GdiDrawText(line3.text, line3.font, line3.colour, 10, line3.y, panel.w - 20, line3.font.Height, LEFT);
+	gr.FillSolidRect(text.x - 15, text.y, text.w + 30, text.h, _.RGBA(0, 0, 0, 156));
+	text.paint(gr);
+}
+
+function on_metadb_changed() {
+	thumbs.metadb_changed();
+	text.metadb_changed();
+	if (panel.metadb) {
+		line1.text = panel.tf(line1.tf);
+		line2.text = panel.tf(line2.tf);
+		line3.text = panel.tf(line3.tf);
+	}
+	window.Repaint();
+}
+
+function on_mouse_wheel(step) {
+	if (text.wheel(step))
+		return;
+	thumbs.wheel(step);
+}
+
+function on_mouse_move(x, y) {
+	text.move(x, y);
+}
+
+function on_mouse_lbtn_up(x, y) {
+	text.lbtn_up(x, y);
+}
+
+function on_mouse_lbtn_dblclk(x, y) {
+	thumbs.lbtn_dblclk(x, y);
+}
+
+function on_mouse_rbtn_up(x, y) {
+	return panel.rbtn_up(x, y, text.move(x, y) ? text : thumbs);
+}

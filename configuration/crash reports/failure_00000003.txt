@@ -1,0 +1,416 @@
+﻿Illegal operation:
+Code: C0000005h, flags: 00000000h, address: 5E852D28h
+Access violation, operation: read, address: 00000014h
+
+Call path:
+FbMediaServer::OnBrowseDirectChildren
+
+Code bytes (5E852D28h):
+5E852CE8h:  89 1E 89 4E 04 5E 5B 5D C2 08 00 8B 55 0C 5F 89
+5E852CF8h:  1E 89 56 04 5E 5B 5D C2 08 00 8B 45 0C 5F 89 1E
+5E852D08h:  89 46 04 5E 5B 5D C2 08 00 CC CC CC CC CC CC CC
+5E852D18h:  CC CC CC CC CC CC CC CC 55 8B EC 8B 45 08 8B 10
+5E852D28h:  8B 42 14 85 C0 74 06 8B 48 1C 41 EB 02 33 C9 8B
+5E852D38h:  42 10 85 C0 74 0D 8B 40 1C 40 3B C1 76 05 89 42
+5E852D48h:  1C 5D C3 89 4A 1C 5D C3 55 8B EC 8B 45 08 8B 10
+5E852D58h:  8B 42 18 85 C0 74 06 8B 48 20 41 EB 02 33 C9 8B
+
+Stack (12B9F1E0h):
+12B9F1C0h:  12B9F267 0EB49504 12B9F1FC 5E93F06B
+12B9F1D0h:  FFFFFFFF 12B9F208 5E8546EE 0EAF6AD0
+12B9F1E0h:  12B9F208 5E8546FE 0EB49504 11D385D7
+12B9F1F0h:  00000000 12B9F267 5E9CCEC4 12B9F230
+12B9F200h:  5E93F06B FFFFFFFF 12B9F23C 5E8546EE
+12B9F210h:  0EB49504 0EB494F0 12B9F258 12B9F267
+12B9F220h:  11D385E3 00000000 00000000 00000000
+12B9F230h:  12B9F3B4 5E93F06B FFFFFFFF 12B9F268
+12B9F240h:  5E85620A 5E9CCEC4 00000000 12B9F258
+12B9F250h:  12B9F267 0484BF98 12B9F260 5E9511D8
+12B9F260h:  00000002 01000009 12B9F3C0 5E84A335
+12B9F270h:  00000000 12B9F28C 11D3841F 00000000
+12B9F280h:  0484BF98 00000000 5E966390 00000000
+12B9F290h:  00000000 00000000 00000000 00000000
+12B9F2A0h:  0AD591C0 00000000 00000000 00000000
+12B9F2B0h:  00000000 00000000 00000000 00000000
+12B9F2C0h:  00000000 00000000 00000000 00000000
+12B9F2D0h:  00000000 00000000 00000000 00000000
+12B9F2E0h:  00000000 00000000 00000000 00000000
+12B9F2F0h:  00000000 00000000 00000000 00000000
+
+Registers:
+EAX: 0EB49504, EBX: 0EB49504, ECX: 11D3860B, EDX: 00000000
+ESI: 12B9F267, EDI: 0EAF6AD0, EBP: 12B9F1E0, ESP: 12B9F1E0
+
+Crash location:
+Module: foo_upnp
+Offset: 32D28h
+
+Loaded modules:
+foobar2000                       loaded at 01380000h - 0154F000h
+ntdll                            loaded at 776F0000h - 7785F000h
+KERNEL32                         loaded at 75DE0000h - 75F20000h
+KERNELBASE                       loaded at 75D00000h - 75DD7000h
+COMCTL32                         loaded at 71A70000h - 71C76000h
+WINMM                            loaded at 72050000h - 72073000h
+DSOUND                           loaded at 5EB50000h - 5EB59000h
+SHLWAPI                          loaded at 75220000h - 75265000h
+UxTheme                          loaded at 71DE0000h - 71ECD000h
+USER32                           loaded at 757D0000h - 75923000h
+GDI32                            loaded at 75A30000h - 75B3F000h
+ADVAPI32                         loaded at 751A0000h - 7521C000h
+SHELL32                          loaded at 76360000h - 7761C000h
+ole32                            loaded at 76080000h - 761A9000h
+zlib1                            loaded at 62E80000h - 62E9F000h
+shared                           loaded at 5EB20000h - 5EB4D000h
+CRYPT32                          loaded at 75B70000h - 75CF8000h
+Secur32                          loaded at 721B0000h - 721BA000h
+gdiplus                          loaded at 70530000h - 706A0000h
+WINHTTP                          loaded at 745E0000h - 7467F000h
+msvcrt                           loaded at 753F0000h - 754B3000h
+WINMMBASE                        loaded at 72020000h - 72043000h
+oleaut32                         loaded at 75FE0000h - 76075000h
+IMAGEHLP                         loaded at 75180000h - 75194000h
+combase                          loaded at 75560000h - 756DD000h
+sechost                          loaded at 75F80000h - 75FC1000h
+RPCRT4                           loaded at 75930000h - 759EA000h
+dbghelp                          loaded at 718E0000h - 71A21000h
+COMDLG32                         loaded at 754C0000h - 7555B000h
+MSASN1                           loaded at 75FD0000h - 75FDE000h
+cfgmgr32                         loaded at 75F30000h - 75F6C000h
+DEVOBJ                           loaded at 74DC0000h - 74DE1000h
+SspiCli                          loaded at 74EE0000h - 74EFE000h
+SHCORE                           loaded at 74160000h - 741EB000h
+CRYPTBASE                        loaded at 74ED0000h - 74EDA000h
+bcryptPrimitives                 loaded at 74E70000h - 74EC4000h
+IMM32                            loaded at 75B40000h - 75B67000h
+MSCTF                            loaded at 76240000h - 76352000h
+foo_ui_hacks                     loaded at 5EAD0000h - 5EB11000h
+wtsapi32                         loaded at 73010000h - 7301F000h
+psapi                            loaded at 75F70000h - 75F76000h
+DWrite                           loaded at 700F0000h - 70271000h
+kernel.appcore                   loaded at 73260000h - 73269000h
+dwmapi                           loaded at 722B0000h - 722CA000h
+foo_uie_vis_channel_spectrum     loaded at 10000000h - 1003D000h
+MSIMG32                          loaded at 700E0000h - 700E6000h
+foo_freedb2                      loaded at 5EA80000h - 5EAD0000h
+foo_dsp_std                      loaded at 5EA30000h - 5EA72000h
+foo_upnp                         loaded at 5E820000h - 5EA27000h
+IPHLPAPI                         loaded at 74540000h - 74560000h
+WS2_32                           loaded at 74F00000h - 74F50000h
+NSI                              loaded at 74F50000h - 74F57000h
+WINNSI                           loaded at 74230000h - 74238000h
+foo_w7shell                      loaded at 032C0000h - 032FC000h
+foo_musicbrainz                  loaded at 5E7C0000h - 5E81B000h
+foo_uie_lyrics3                  loaded at 04660000h - 04715000h
+WININET                          loaded at 74680000h - 7488D000h
+iertutil                         loaded at 74260000h - 74494000h
+USERENV                          loaded at 74240000h - 7425B000h
+profapi                          loaded at 741F0000h - 741FF000h
+foo_ui_std                       loaded at 5E6B0000h - 5E7BE000h
+foo_dsp_eq                       loaded at 5C310000h - 5C347000h
+foo_ui_columns                   loaded at 04AB0000h - 04C5C000h
+urlmon                           loaded at 6FEA0000h - 6FFEB000h
+USP10                            loaded at 6C3C0000h - 6C3D6000h
+foo_jscript_panel                loaded at 5C200000h - 5C309000h
+foo_uie_elplaylist               loaded at 5C180000h - 5C1F3000h
+foo_lyricsource                  loaded at 5C140000h - 5C177000h
+libxml2                          loaded at 04940000h - 04A35000h
+WSOCK32                          loaded at 74960000h - 74968000h
+iconv                            loaded at 04850000h - 04929000h
+foo_fileops                      loaded at 5C0F0000h - 5C13E000h
+foo_uie_albumlist                loaded at 04740000h - 04783000h
+foo_uie_wsh_panel_mod            loaded at 5C020000h - 5C0E6000h
+foo_wave_seekbar                 loaded at 5BE70000h - 5C019000h
+MSVCP120                         loaded at 5BDF0000h - 5BE61000h
+MSVCR120                         loaded at 5BD00000h - 5BDEE000h
+mswsock                          loaded at 73360000h - 733AB000h
+foo_quicksearch                  loaded at 5BCA0000h - 5BCF7000h
+WindowsCodecs                    loaded at 70280000h - 703EB000h
+foo_cdda                         loaded at 5BC40000h - 5BC91000h
+foo_converter                    loaded at 5BBB0000h - 5BC38000h
+foo_uie_biography                loaded at 5BB50000h - 5BBA8000h
+foo_uie_panel_splitter           loaded at 04C60000h - 04CB9000h
+foo_discogs                      loaded at 04CC0000h - 04D35000h
+foo_unpack                       loaded at 5BB00000h - 5BB4C000h
+foo_input_std                    loaded at 5B9A0000h - 5BAFB000h
+MSACM32                          loaded at 71800000h - 71817000h
+avcodec-fb2k-56                  loaded at 5B3E0000h - 5B5BE000h
+avutil-fb2k-54                   loaded at 5B910000h - 5B99A000h
+foo_audioscrobbler               loaded at 04D50000h - 04D83000h
+foo_albumlist                    loaded at 5B8B0000h - 5B90B000h
+foo_rgscan                       loaded at 5B840000h - 5B8A1000h
+clbcatq                          loaded at 75740000h - 757CD000h
+MMDevApi                         loaded at 71880000h - 718D3000h
+AUDIOSES                         loaded at 71820000h - 71880000h
+powrprof                         loaded at 730C0000h - 73100000h
+frontend_direct2d                loaded at 5B7D0000h - 5B811000h
+d2d1                             loaded at 57A00000h - 57DE6000h
+frontend_direct3d9               loaded at 5B390000h - 5B3E0000h
+d3d9                             loaded at 62ED0000h - 630A3000h
+d3dx9_42                         loaded at 5B1A0000h - 5B385000h
+VERSION                          loaded at 74E60000h - 74E68000h
+SciLexer                         loaded at 5AF90000h - 5B032000h
+twinapi                          loaded at 60310000h - 603B4000h
+propsys                          loaded at 703F0000h - 7052A000h
+Bcp47Langs                       loaded at 602C0000h - 6030D000h
+apphelp                          loaded at 706A0000h - 70740000h
+OldNewExplorer32                 loaded at 72080000h - 720BA000h
+LINKINFO                         loaded at 5B820000h - 5B82B000h
+SETUPAPI                         loaded at 74F60000h - 75111000h
+ntshrui                          loaded at 60210000h - 602B8000h
+srvcli                           loaded at 72160000h - 7217D000h
+cscapi                           loaded at 720C0000h - 720CF000h
+CRYPTSP                          loaded at 73E70000h - 73E89000h
+rsaenh                           loaded at 73E40000h - 73E70000h
+bcrypt                           loaded at 73E20000h - 73E3E000h
+ntmarta                          loaded at 74D90000h - 74DB8000h
+sxs                              loaded at 722D0000h - 7234E000h
+AhAScr                           loaded at 5E600000h - 5E62D000h
+aswCmnBS                         loaded at 74C40000h - 74C98000h
+aswCmnIS                         loaded at 749A0000h - 749ED000h
+aswCmnOS                         loaded at 74970000h - 74991000h
+MSVCP110                         loaded at 74AD0000h - 74B55000h
+MSVCR110                         loaded at 749F0000h - 74AC6000h
+Aavm4h                           loaded at 73B40000h - 73C8E000h
+commchannel                      loaded at 748D0000h - 7495E000h
+JsonRpcServer                    loaded at 73C90000h - 73CA5000h
+avastIP                          loaded at 748B0000h - 748C4000h
+log                              loaded at 74CA0000h - 74CBB000h
+aswEngLdr                        loaded at 74890000h - 748A1000h
+AavmRpch                         loaded at 73880000h - 738C9000h
+ashBase                          loaded at 74B60000h - 74C3F000h
+ashTask                          loaded at 73A30000h - 73A91000h
+DNSAPI                           loaded at 74560000h - 745DE000h
+RASAPI32                         loaded at 744A0000h - 7453E000h
+WINTRUST                         loaded at 759F0000h - 75A2D000h
+aswAux                           loaded at 738D0000h - 739B7000h
+rasman                           loaded at 74200000h - 74227000h
+jscript                          loaded at 5AEE0000h - 5AF86000h
+mshtml                           loaded at 582A0000h - 59712000h
+wshom                            loaded at 5B170000h - 5B192000h
+MPR                              loaded at 699D0000h - 699E6000h
+ScrRun                           loaded at 5B140000h - 5B16C000h
+msscript                         loaded at 5E690000h - 5E6AC000h
+vbscript                         loaded at 5AE60000h - 5AEDD000h
+tiptsf                           loaded at 5ADE0000h - 5AE5D000h
+nvd3dum                          loaded at 6F220000h - 6FE5E000h
+nvspcap                          loaded at 0CEF0000h - 0D034000h
+nvSCPAPI                         loaded at 5ACB0000h - 5ADDE000h
+dhcpcsvc                         loaded at 72410000h - 72424000h
+explorerframe                    loaded at 605B0000h - 60848000h
+DUser                            loaded at 60530000h - 605AF000h
+DUI70                            loaded at 603C0000h - 60529000h
+dsound                           loaded at 6A540000h - 6A5C1000h
+avrt                             loaded at 720D0000h - 720DA000h
+dhcpcsvc6                        loaded at 724A0000h - 724B3000h
+mdnsNSP                          loaded at 73270000h - 73291000h
+rasadhlp                         loaded at 724C0000h - 724C8000h
+fwpuclnt                         loaded at 72520000h - 72566000h
+ondemandconnroutehelper          loaded at 6FE60000h - 6FE6A000h
+nvapi                            loaded at 5A9B0000h - 5ACAE000h
+dxgi                             loaded at 62950000h - 629B9000h
+
+Stack dump analysis:
+Address: 5E8546FEh (foo_upnp+346FEh)
+Address: 5E9CCEC4h (foo_upnp+1ACEC4h), symbol: "foobar2000_get_interface" (+1154A4h)
+Address: 5E93F06Bh (foo_upnp+11F06Bh), symbol: "foobar2000_get_interface" (+8764Bh)
+Address: 5E8546EEh (foo_upnp+346EEh)
+Address: 5E93F06Bh (foo_upnp+11F06Bh), symbol: "foobar2000_get_interface" (+8764Bh)
+Address: 5E85620Ah (foo_upnp+3620Ah)
+Address: 5E9CCEC4h (foo_upnp+1ACEC4h), symbol: "foobar2000_get_interface" (+1154A4h)
+Address: 5E9511D8h (foo_upnp+1311D8h), symbol: "foobar2000_get_interface" (+997B8h)
+Address: 5E84A335h (foo_upnp+2A335h)
+Address: 5E966390h (foo_upnp+146390h), symbol: "foobar2000_get_interface" (+AE970h)
+Address: 75D01001h (KERNELBASE+1001h)
+Address: 5E93E0D3h (foo_upnp+11E0D3h), symbol: "foobar2000_get_interface" (+866B3h)
+Address: 5E84D5E0h (foo_upnp+2D5E0h)
+Address: 5E93E720h (foo_upnp+11E720h), symbol: "foobar2000_get_interface" (+86D00h)
+Address: 5E8512C5h (foo_upnp+312C5h)
+Address: 5E94C3FCh (foo_upnp+12C3FCh), symbol: "foobar2000_get_interface" (+949DCh)
+Address: 5E94F504h (foo_upnp+12F504h), symbol: "foobar2000_get_interface" (+97AE4h)
+Address: 5E96A938h (foo_upnp+14A938h), symbol: "foobar2000_get_interface" (+B2F18h)
+Address: 5E96A90Ch (foo_upnp+14A90Ch), symbol: "foobar2000_get_interface" (+B2EECh)
+Address: 5E96DC18h (foo_upnp+14DC18h), symbol: "foobar2000_get_interface" (+B61F8h)
+Address: 7772C43Ch (ntdll+3C43Ch), symbol: "ZwReleaseMutant" (+Ch)
+Address: 75D01020h (KERNELBASE+1020h), symbol: "ReleaseMutex" (+10h)
+Address: 5E8F50BAh (foo_upnp+D50BAh), symbol: "foobar2000_get_interface" (+3D69Ah)
+Address: 5E8E909Dh (foo_upnp+C909Dh), symbol: "foobar2000_get_interface" (+3167Dh)
+Address: 5E8E90C0h (foo_upnp+C90C0h), symbol: "foobar2000_get_interface" (+316A0h)
+Address: 5E94F464h (foo_upnp+12F464h), symbol: "foobar2000_get_interface" (+97A44h)
+Address: 746A8AC0h (WININET+28AC0h), symbol: "FindCloseUrlCache" (+1B90h)
+Address: 5E94F09Ch (foo_upnp+12F09Ch), symbol: "foobar2000_get_interface" (+9767Ch)
+Address: 5E94F464h (foo_upnp+12F464h), symbol: "foobar2000_get_interface" (+97A44h)
+Address: 6F724227h (nvd3dum+504227h)
+Address: 72423D67h (dhcpcsvc+13D67h), symbol: "DhcpGlobalIsShuttingDown" (+5C97h)
+Address: 77730EA9h (ntdll+40EA9h), symbol: "RtlAllocateHeap" (+C9h)
+Address: 5E9694BCh (foo_upnp+1494BCh), symbol: "foobar2000_get_interface" (+B1A9Ch)
+Address: 5E94CC54h (foo_upnp+12CC54h), symbol: "foobar2000_get_interface" (+95234h)
+Address: 75D02CC7h (KERNELBASE+2CC7h), symbol: "WaitForSingleObjectEx" (+B7h)
+Address: 5E94C3FCh (foo_upnp+12C3FCh), symbol: "foobar2000_get_interface" (+949DCh)
+Address: 5E93EE3Ah (foo_upnp+11EE3Ah), symbol: "foobar2000_get_interface" (+8741Ah)
+Address: 5E85299Bh (foo_upnp+3299Bh)
+Address: 5E9E606Ch (foo_upnp+1C606Ch), symbol: "foobar2000_get_interface" (+12E64Ch)
+Address: 5E8DCB72h (foo_upnp+BCB72h), symbol: "foobar2000_get_interface" (+25152h)
+Address: 5E9E606Ch (foo_upnp+1C606Ch), symbol: "foobar2000_get_interface" (+12E64Ch)
+Address: 5E947F40h (foo_upnp+127F40h), symbol: "foobar2000_get_interface" (+90520h)
+Address: 5E8DC451h (foo_upnp+BC451h), symbol: "foobar2000_get_interface" (+24A31h)
+Address: 5E9409B8h (foo_upnp+1209B8h), symbol: "foobar2000_get_interface" (+88F98h)
+Address: 5E846F0Eh (foo_upnp+26F0Eh)
+Address: 5E93D9B0h (foo_upnp+11D9B0h), symbol: "foobar2000_get_interface" (+85F90h)
+Address: 5E8DB88Ch (foo_upnp+BB88Ch), symbol: "foobar2000_get_interface" (+23E6Ch)
+Address: 77733D42h (ntdll+43D42h), symbol: "RtlFreeHeap" (+2292h)
+Address: 5E94DFCCh (foo_upnp+12DFCCh), symbol: "foobar2000_get_interface" (+965ACh)
+Address: 706E7075h (apphelp+47075h), symbol: "SdbGetPDBFromGUID" (+15h)
+Address: 746E6574h (WININET+66574h), symbol: "InternetSetStatusCallbackA" (+3D94h)
+Address: 5E91C8E4h (foo_upnp+FC8E4h), symbol: "foobar2000_get_interface" (+64EC4h)
+Address: 5E91C8E4h (foo_upnp+FC8E4h), symbol: "foobar2000_get_interface" (+64EC4h)
+Address: 5E826447h (foo_upnp+6447h)
+Address: 5E93A738h (foo_upnp+11A738h), symbol: "foobar2000_get_interface" (+82D18h)
+Address: 5E8C07B2h (foo_upnp+A07B2h), symbol: "foobar2000_get_interface" (+8D92h)
+Address: 776F7242h (ntdll+7242h), symbol: "RtlAddSIDToBoundaryDescriptor" (+152h)
+Address: 5E948116h (foo_upnp+128116h), symbol: "foobar2000_get_interface" (+906F6h)
+Address: 5E8DE421h (foo_upnp+BE421h), symbol: "foobar2000_get_interface" (+26A01h)
+Address: 5E968F78h (foo_upnp+148F78h), symbol: "foobar2000_get_interface" (+B1558h)
+Address: 5E947DBDh (foo_upnp+127DBDh), symbol: "foobar2000_get_interface" (+9039Dh)
+Address: 5E8D9AC0h (foo_upnp+B9AC0h), symbol: "foobar2000_get_interface" (+220A0h)
+Address: 5E947AE0h (foo_upnp+127AE0h), symbol: "foobar2000_get_interface" (+900C0h)
+Address: 5E8E3B98h (foo_upnp+C3B98h), symbol: "foobar2000_get_interface" (+2C178h)
+Address: 5E948CA0h (foo_upnp+128CA0h), symbol: "foobar2000_get_interface" (+91280h)
+Address: 5E8E4AA9h (foo_upnp+C4AA9h), symbol: "foobar2000_get_interface" (+2D089h)
+Address: 5E948E26h (foo_upnp+128E26h), symbol: "foobar2000_get_interface" (+91406h)
+Address: 5E8E4203h (foo_upnp+C4203h), symbol: "foobar2000_get_interface" (+2C7E3h)
+Address: 5E948D1Bh (foo_upnp+128D1Bh), symbol: "foobar2000_get_interface" (+912FBh)
+Address: 5E8C897Ah (foo_upnp+A897Ah), symbol: "foobar2000_get_interface" (+10F5Ah)
+Address: 5E923E6Ch (foo_upnp+103E6Ch), symbol: "foobar2000_get_interface" (+6C44Ch)
+Address: 5E923E6Ch (foo_upnp+103E6Ch), symbol: "foobar2000_get_interface" (+6C44Ch)
+Address: 745B4880h (DNSAPI+54880h), symbol: "DnsValidateServer_W" (+3640h)
+Address: 5E9269DFh (foo_upnp+1069DFh), symbol: "foobar2000_get_interface" (+6EFBFh)
+Address: 745B4880h (DNSAPI+54880h), symbol: "DnsValidateServer_W" (+3640h)
+Address: 5E921B45h (foo_upnp+101B45h), symbol: "foobar2000_get_interface" (+6A125h)
+Address: 5E8EAD2Ah (foo_upnp+CAD2Ah), symbol: "foobar2000_get_interface" (+3330Ah)
+Address: 5E8F542Fh (foo_upnp+D542Fh), symbol: "foobar2000_get_interface" (+3DA0Fh)
+Address: 5E923E6Ch (foo_upnp+103E6Ch), symbol: "foobar2000_get_interface" (+6C44Ch)
+Address: 745B4880h (DNSAPI+54880h), symbol: "DnsValidateServer_W" (+3640h)
+Address: 5E923E6Ch (foo_upnp+103E6Ch), symbol: "foobar2000_get_interface" (+6C44Ch)
+Address: 5E923E46h (foo_upnp+103E46h), symbol: "foobar2000_get_interface" (+6C426h)
+Address: 5E923E6Ch (foo_upnp+103E6Ch), symbol: "foobar2000_get_interface" (+6C44Ch)
+Address: 5E923E6Ch (foo_upnp+103E6Ch), symbol: "foobar2000_get_interface" (+6C44Ch)
+Address: 5E91D4D0h (foo_upnp+FD4D0h), symbol: "foobar2000_get_interface" (+65AB0h)
+Address: 5E923ED0h (foo_upnp+103ED0h), symbol: "foobar2000_get_interface" (+6C4B0h)
+Address: 5E923E6Ch (foo_upnp+103E6Ch), symbol: "foobar2000_get_interface" (+6C44Ch)
+Address: 75DF7C04h (KERNEL32+17C04h), symbol: "BaseThreadInitThunk" (+24h)
+Address: 75DF7BE0h (KERNEL32+17BE0h), symbol: "BaseThreadInitThunk" (+0h)
+Address: 7774AB8Fh (ntdll+5AB8Fh), symbol: "RtlInitializeExceptionChain" (+8Fh)
+Address: 75DBF580h (KERNELBASE+BF580h), symbol: "UnhandledExceptionFilter" (+0h)
+Address: 77787380h (ntdll+97380h), symbol: "wcstombs" (+90h)
+Address: 7774AB5Ah (ntdll+5AB5Ah), symbol: "RtlInitializeExceptionChain" (+5Ah)
+Address: 7772FFDDh (ntdll+3FFDDh), symbol: "RtlCaptureContext" (+DEh)
+Address: 5E923E6Ch (foo_upnp+103E6Ch), symbol: "foobar2000_get_interface" (+6C44Ch)
+Address: 70207369h (DWrite+117369h), symbol: "DWriteCreateFactory" (+F7629h)
+Address: 6F6E6E61h (nvd3dum+4C6E61h)
+Address: 10000000h (foo_uie_vis_channel_spectrum+0h)
+
+Environment:
+App: foobar2000 v1.3.9
+UI: Columns UI 0.3.9.1
+
+Components:
+Core (2015-11-02 13:34:35 UTC)
+    foobar2000 core 1.3.9
+foo_albumlist.dll (2015-11-02 13:31:05 UTC)
+    Album List 4.5
+foo_audioscrobbler.dll (2015-12-10 11:37:56 UTC)
+    Audioscrobbler 1.4.7
+foo_cdda.dll (2015-11-02 13:30:27 UTC)
+    CD Audio Decoder 3.0
+foo_converter.dll (2015-11-02 13:30:34 UTC)
+    Converter 1.5
+foo_discogs.dll (2015-12-10 07:37:15 UTC)
+    Discogs Tagger 1.55
+foo_dsp_eq.dll (2015-11-02 13:30:54 UTC)
+    Equalizer 1.0
+foo_dsp_std.dll (2015-11-02 13:30:41 UTC)
+    Standard DSP Array 1.3.1
+foo_fileops.dll (2015-11-02 13:30:07 UTC)
+    File Operations 2.2.1
+foo_freedb2.dll (2015-11-02 13:30:17 UTC)
+    Online Tagger 0.7
+foo_input_std.dll (2015-11-02 13:34:34 UTC)
+    Standard Input Array 1.0
+foo_jscript_panel.dll (2016-01-06 06:28:56 UTC)
+    JScript Panel 1.0.7
+foo_lyricsource.dll (2016-02-13 19:29:30 UTC)
+    Custom lyrics source 0.1
+foo_musicbrainz.dll (2016-01-13 16:28:35 UTC)
+    MusicBrainz Tagger 0.3.1
+foo_quicksearch.dll (2011-06-09 10:16:08 UTC)
+    Quick Search Toolbar 3.2
+foo_rgscan.dll (2015-11-02 13:31:04 UTC)
+    ReplayGain Scanner 2.2.2
+foo_ui_columns.dll (2015-12-10 07:44:17 UTC)
+    Columns UI 0.3.9.1
+foo_ui_hacks.dll (2011-08-18 11:09:18 UTC)
+    UI Hacks 2011-08-18
+foo_ui_std.dll (2015-11-02 13:34:34 UTC)
+    Default User Interface 0.9.5
+foo_uie_albumlist.dll (2016-01-06 07:13:36 UTC)
+    Album list panel 0.3.5
+foo_uie_biography.dll (2010-12-11 13:47:22 UTC)
+    Biography View 0.4.2.4
+foo_uie_elplaylist.dll (2010-10-31 02:51:16 UTC)
+    ELPlaylist 0.6.9.1.2(beta)
+foo_uie_lyrics3.dll (2015-02-16 19:26:14 UTC)
+    Lyric Show Panel 3 0.4.5
+foo_uie_panel_splitter.dll (2015-12-24 08:49:45 UTC)
+    Panel Stack Splitter 0.3.8.3(alpha)
+foo_uie_vis_channel_spectrum.dll (2016-01-06 06:53:19 UTC)
+    Channel Spectrum panel 0.17.2
+foo_uie_wsh_panel_mod.dll (2011-08-05 16:54:53 UTC)
+    WSH Panel Mod 1.4.4 
+foo_unpack.dll (2015-11-02 13:30:41 UTC)
+    ZIP/GZIP/RAR Reader 1.7.1
+foo_upnp.dll (2015-12-10 07:32:05 UTC)
+    UPnP/DLNA Renderer, Server, Control Point 0.99.49
+foo_w7shell.dll (2012-02-05 10:20:51 UTC)
+    Windows 7 integration 0.2.9.1
+foo_wave_seekbar.dll (2015-12-10 07:30:07 UTC)
+    Waveform seekbar 0.2.45
+
+Recent events:
+Audioscrobbler: Submitting track...
+Audioscrobbler: Submission succeeded.
+Opening track for playback: "D:\Music\Albums\Hip Hop - Rap\Rae Sremmurd - SremmLife\Rae Sremmurd - SremmLife\05 - This Could Be Us.mp3"
+Audioscrobbler: Submitting track...
+Audioscrobbler: Submission succeeded.
+Opening track for playback: "D:\Music\Albums\Hip Hop - Rap\Rae Sremmurd - SremmLife\Rae Sremmurd - SremmLife\06 - Come Get Her.mp3"
+Audioscrobbler: Submitting track...
+Audioscrobbler: Submission succeeded.
+Opening track for playback: "D:\Music\Albums\Rock - Folk - Alt - Indie\David Bowie\1972 - Ziggy Stardust And The Spiders From Mars [30th Anniversary Edition]\(1-02) [David Bowie] Soul Love.mp3"
+Audioscrobbler: Now playing notification failed due to bad session ID
+Opening track for playback: "D:\Music\Albums\Rock - Folk - Alt - Indie\David Bowie\1971 - Hunky Dory\(06) [David Bowie] Quicksand.mp3"
+Audioscrobbler: Handshake successful.
+Opening track for playback: "D:\Music\Albums\Rock - Folk - Alt - Indie\Tame Impala\Tame Impala - Innerspeaker\CD 1 - Innerspeaker\10. Runway, Houses, City, Clouds.mp3"
+Wave cache: finished analysis of "D:\Music\Albums\Rock - Folk - Alt - Indie\Tame Impala\Tame Impala - Innerspeaker\CD 1 - Innerspeaker\10. Runway, Houses, City, Clouds.mp3"
+Opening track for playback: "D:\Music\Albums\Rock - Folk - Alt - Indie\Arctic Monkeys\Arctic Monkeys - AM (2013) [MP3 320] politux\01-arctic_monkeys-do_i_wanna_know.mp3"
+Audioscrobbler: Now playing notification failed due to bad session ID
+Audioscrobbler: Handshake failed: The system time is far off. Please correct your system time.
+Audioscrobbler: Handshake failed.
+Opening track for playback: "D:\Music\Albums\Rock - Folk - Alt - Indie\Arctic Monkeys\Arctic Monkeys - AM (2013) [MP3 320] politux\02-arctic_monkeys-r_u_mine.mp3"
+Audioscrobbler: Handshake successful.
+Opening track for playback: "D:\Music\Albums\Rock - Folk - Alt - Indie\Arctic Monkeys\Arctic Monkeys - AM (2013) [MP3 320] politux\03-arctic_monkeys-one_for_the_road.mp3"
+Audioscrobbler: Submitting 2 cached tracks...
+Audioscrobbler: Submission succeeded.
+Opening track for playback: "D:\Music\Albums\Rock - Folk - Alt - Indie\Arctic Monkeys\Arctic Monkeys - AM (2013) [MP3 320] politux\04-arctic_monkeys-arabella.mp3"
+Audioscrobbler: Submitting track...
+Audioscrobbler: Submission succeeded.
+Audioscrobbler: Submitting track...
+Opening track for playback: "D:\Music\Albums\Rock - Folk - Alt - Indie\Arctic Monkeys\Arctic Monkeys - AM (2013) [MP3 320] politux\02-arctic_monkeys-r_u_mine.mp3"
+Audioscrobbler: Submission succeeded.
+Opening track for playback: "D:\Music\Albums\Rock - Folk - Alt - Indie\Arctic Monkeys\Arctic Monkeys - AM (2013) [MP3 320] politux\03-arctic_monkeys-one_for_the_road.mp3"
+
+
+Machine specifications:
+OS: Windows 6.3.9600 x64
+CPU: Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz, features: MMX SSE SSE2 SSE3 SSE4.1 SSE4.2
+CPU threads: 4
+Audio: Speakers (Realtek High Definition Audio); Realtek Digital Output (Realtek High Definition Audio); Realtek Digital Output(Optical) (Realtek High Definition Audio)

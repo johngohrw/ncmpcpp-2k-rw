@@ -1,0 +1,81 @@
+// ==PREPROCESSOR==
+// @name "Playback Buttons"
+// @author "marc2003"
+// @import "%fb2k_profile_path%js_marc2003\js\lodash.min.js"
+// @import "%fb2k_profile_path%js_marc2003\js\helpers.js"
+// @import "%fb2k_profile_path%js_marc2003\js\panel.js"
+// ==/PREPROCESSOR==
+
+var panel = new _.panel("Playback Buttons", ["custom_background"]);
+var buttons = new _.buttons();
+var bs = 32;
+var guifx_font = _.gdiFont(guifx.font, 8, 1);
+
+buttons.buttons.stop = new _.button(0, 0, bs, bs, {normal : "buttons\\stop.png"}, function () { fb.Stop(); }, "Stop");
+buttons.buttons.play = new _.button(bs, 0, bs, bs, {normal : !fb.IsPlaying || fb.IsPaused ? "buttons\\play.png" : "buttons\\pause.png"}, function () { fb.PlayOrPause(); }, !fb.IsPlaying || fb.IsPaused ? "Play" : "Pause");
+buttons.buttons.previous = new _.button(bs * 2, 0, bs, bs, {normal : "buttons\\previous.png"}, function () { fb.Prev(); }, "Previous");
+buttons.buttons.next = new _.button(bs * 3, 0, bs, bs, {normal : "buttons\\next.png"}, function () { fb.Next(); }, "Next");
+
+buttons.update = function () {
+	this.buttons.play = new _.button(bs, 0, bs, bs, {normal : !fb.IsPlaying || fb.IsPaused ? "buttons\\play.png" : "buttons\\pause.png"}, function () { fb.PlayOrPause(); }, !fb.IsPlaying || fb.IsPaused ? "Play" : "Pause");
+	window.RepaintRect(this.buttons.play.x, this.buttons.play.y, this.buttons.play.w, this.buttons.play.h);
+}
+
+function on_playlist_stop_after_current_changed() {
+	window.RepaintRect(buttons.buttons.stop.x, buttons.buttons.stop.y, buttons.buttons.stop.w, buttons.buttons.stop.h);
+}
+
+function on_size() {
+	panel.size();
+}
+
+function on_paint(gr) {
+	panel.paint(gr);
+	buttons.paint(gr);
+	gr.SetTextRenderingHint(4);
+	if (fb.StopAfterCurrent)
+		gr.DrawString("4", guifx_font, _.RGB(196, 30, 35), buttons.buttons.stop.x, buttons.buttons.stop.y + 1, buttons.buttons.stop.w, buttons.buttons.stop.h, SF_CENTRE);
+}
+
+function on_playback_stop() {
+	buttons.update();
+}
+
+function on_playback_pause() {
+	buttons.update();
+}
+
+function on_playback_starting() {
+	buttons.update();
+}
+
+function on_mouse_move(x, y) {
+	buttons.move(x, y);
+}
+
+function on_mouse_leave() {
+	buttons.leave();
+}
+
+function on_mouse_lbtn_up(x, y) {
+	buttons.lbtn_up(x, y);
+}
+
+function on_mouse_rbtn_up(x, y) {
+	if (buttons.buttons.stop.trace(x, y)) {
+		var m = window.CreatePopupMenu();
+		m.AppendMenuItem(MF_STRING, 1, "Stop After Current");
+		m.CheckMenuItem(1, fb.StopAfterCurrent);
+		m.AppendMenuSeparator();
+		m.AppendMenuItem(MF_STRING, 2, "Configure...");
+		var idx = m.TrackPopupMenu(x, y);
+		if (idx == 1)
+			fb.StopAfterCurrent = !fb.StopAfterCurrent;
+		else if (idx == 2)
+			window.ShowConfigure();
+		m.Dispose();
+		return true;
+	} else {
+		return panel.rbtn_up(x, y);
+	}
+}

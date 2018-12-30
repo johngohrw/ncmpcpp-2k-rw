@@ -1,0 +1,8 @@
+$if($isvisible_c(Playlists),
+    $movepanel_c(Playlist,150,32,$sub(%_width%,150),$sub(%_height%,42))
+    PANELSHOW:Playlist:1;PANELSHOW:Playlists:0;PANELSHOW:Search:0;PANELSHOW:Bio:0;PANELSHOW:Lyrics:0;PANELSHOW:Visuals:0;
+    REFRESH,
+    $movepanel_c(Playlist,0,32,%_width%,$sub(%_height%,42))
+    PANELSHOW:Playlist:1;PANELSHOW:Playlists:1;PANELSHOW:Search:1;PANELSHOW:Bio:0;PANELSHOW:Lyrics:0;PANELSHOW:Visuals:0;
+    REFRESH
+)

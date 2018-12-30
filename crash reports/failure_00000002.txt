@@ -1,0 +1,526 @@
+﻿Illegal operation:
+Code: AA67913Ch, flags: 00000001h, address: 7613CBB2h
+Bug check
+
+Call path:
+entry=>on_playback_stop
+
+Code bytes (7613CBB2h):
+7613CB72h:  04 24 8B 45 0C 83 E0 01 C7 44 24 0C 50 CB 13 76
+7613CB82h:  89 44 24 04 85 C9 74 39 8B 45 10 83 F8 0F 77 38
+7613CB92h:  89 44 24 10 C1 E0 02 50 51 8D 44 24 1C 50 E8 1F
+7613CBA2h:  9D 01 00 83 C4 0C 8D 04 24 50 FF 15 90 53 1E 76
+7613CBB2h:  8B 4C 24 54 33 CC E8 33 6A 01 00 8B E5 5D C2 10
+7613CBC2h:  00 83 64 24 10 00 EB DE 6A 0F 58 EB C3 CC CC CC
+7613CBD2h:  CC CC CC CC CC CC CC CC CC CC CC CC CC CC 6A 2C
+7613CBE2h:  68 88 F6 1C 76 E8 C4 9B 01 00 33 FF 89 7D DC 89
+
+Stack (00CFF040h):
+00CFF020h:  00000001 73F1E375 00000000 00000000
+00CFF030h:  00000000 00CFF098 7613CBB2 00CFF040
+00CFF040h:  AA67913C 00000001 00000000 7613CBB2
+00CFF050h:  00000000 00CFF144 07C4C8B0 00ADD000
+00CFF060h:  00030000 00CFF098 73F1FEE9 00000000
+00CFF070h:  00000001 00CFF144 00CFF134 77455870
+00CFF080h:  73F1FEFF EBAE958C 00000000 00030000
+00CFF090h:  73F1622B EE442F54 00CFF0D4 0F192775
+00CFF0A0h:  AA67913C 00000001 00000000 00000000
+00CFF0B0h:  0129197C 3704AEC1 00000000 00CFF0B0
+00CFF0C0h:  00CFE6E4 00CFF0F0 0F1A92A8 0F1AFDE8
+00CFF0D0h:  00000000 00CFF100 012919D6 0129197C
+00CFF0E0h:  3704AEC1 E976E5FE 00CFF0DC 00000000
+00CFF0F0h:  00CFF204 01352528 01390C98 00000000
+00CFF100h:  00CFF12C 73F2342B 00070904 000004B1
+00CFF110h:  E976E5FE 3704AEC1 3704AEC1 DCBAABCD
+00CFF120h:  E976E5FE 0129197C 3704AEC1 00CFF214
+00CFF130h:  73F15893 0129197C 00070904 000004B1
+00CFF140h:  E976E5FE 3704AEC1 EBAE97B4 C0001388
+00CFF150h:  40000000 000004B1 0000064C 000003B2
+
+Registers:
+EAX: 00CFF040, EBX: 00000000, ECX: 00000000, EDX: 00000000
+ESI: 3704AEC1, EDI: 0129197C, EBP: 00CFF098, ESP: 00CFF040
+
+Crash location:
+Module: KERNELBASE
+Offset: ECBB2h
+Symbol: "RaiseException" (+62h)
+
+Loaded modules:
+foobar2000                       loaded at 01230000h - 013FF000h
+ntdll                            loaded at 773D0000h - 7755E000h
+KERNEL32                         loaded at 74030000h - 74100000h
+aswhookx                         loaded at 6A1D0000h - 6A1FF000h
+KERNELBASE                       loaded at 76050000h - 76212000h
+apphelp                          loaded at 6A230000h - 6A2C3000h
+SHLWAPI                          loaded at 74570000h - 745B5000h
+msvcrt                           loaded at 771F0000h - 772AD000h
+combase                          loaded at 74830000h - 74A68000h
+ucrtbase                         loaded at 74300000h - 74418000h
+RPCRT4                           loaded at 772C0000h - 77380000h
+SspiCli                          loaded at 73EA0000h - 73EC0000h
+CRYPTBASE                        loaded at 73E90000h - 73E9A000h
+bcryptPrimitives                 loaded at 74230000h - 74287000h
+sechost                          loaded at 77380000h - 773C1000h
+GDI32                            loaded at 75E50000h - 75E71000h
+gdi32full                        loaded at 767A0000h - 768F8000h
+msvcp_win                        loaded at 75E80000h - 75EF9000h
+USER32                           loaded at 73EF0000h - 7402C000h
+win32u                           loaded at 74520000h - 74536000h
+ADVAPI32                         loaded at 747A0000h - 74817000h
+SHELL32                          loaded at 74A70000h - 75DB8000h
+cfgmgr32                         loaded at 741F0000h - 74229000h
+shcore                           loaded at 74100000h - 7418C000h
+windows.storage                  loaded at 76C10000h - 77197000h
+kernel.appcore                   loaded at 772B0000h - 772BE000h
+powrprof                         loaded at 771A0000h - 771E5000h
+profapi                          loaded at 74790000h - 747A0000h
+ole32                            loaded at 74420000h - 74513000h
+CRYPT32                          loaded at 76A90000h - 76C0D000h
+MSASN1                           loaded at 76740000h - 7674E000h
+COMCTL32                         loaded at 67F80000h - 6818E000h
+WINMM                            loaded at 6FCB0000h - 6FCD4000h
+DSOUND                           loaded at 61B40000h - 61B49000h
+oleaut32                         loaded at 76900000h - 76996000h
+IMAGEHLP                         loaded at 73ED0000h - 73EE9000h
+UxTheme                          loaded at 6AD30000h - 6ADA8000h
+zlib1                            loaded at 62E80000h - 62E9F000h
+shared                           loaded at 0F190000h - 0F1BD000h
+COMDLG32                         loaded at 769A0000h - 76A8F000h
+Secur32                          loaded at 6FD30000h - 6FD3A000h
+gdiplus                          loaded at 66AB0000h - 66C16000h
+WINHTTP                          loaded at 72C20000h - 72CCD000h
+WINMMBASE                        loaded at 6F270000h - 6F293000h
+dbghelp                          loaded at 733F0000h - 7354D000h
+dbgcore                          loaded at 73700000h - 73725000h
+IMM32                            loaded at 74540000h - 74565000h
+foo_ui_hacks                     loaded at 01070000h - 010B1000h
+psapi                            loaded at 76280000h - 76286000h
+wtsapi32                         loaded at 73E80000h - 73E8F000h
+MSCTF                            loaded at 75F00000h - 76046000h
+DWrite                           loaded at 65890000h - 65AD7000h
+dwmapi                           loaded at 6AE00000h - 6AE23000h
+foo_dsp_std                      loaded at 0F370000h - 0F3B2000h
+foo_lyricsource                  loaded at 0F3F0000h - 0F427000h
+libxml2                          loaded at 10000000h - 100F5000h
+WSOCK32                          loaded at 73080000h - 73088000h
+WS2_32                           loaded at 74290000h - 742F7000h
+iconv                            loaded at 04D80000h - 04E59000h
+foo_wave_seekbar                 loaded at 0FCF0000h - 0FE99000h
+IPHLPAPI                         loaded at 73E50000h - 73E7F000h
+MSVCP120                         loaded at 0F940000h - 0F9B1000h
+MSVCR120                         loaded at 0F080000h - 0F16E000h
+mswsock                          loaded at 73E00000h - 73E4E000h
+foo_fileops                      loaded at 0FBB0000h - 0FBFE000h
+foo_quicksearch                  loaded at 0FAB0000h - 0FB07000h
+WindowsCodecs                    loaded at 61D60000h - 61ED2000h
+foo_jscript_panel                loaded at 06F10000h - 07019000h
+Msimg32                          loaded at 67F20000h - 67F26000h
+foo_ui_std                       loaded at 0FEB0000h - 0FFBE000h
+foo_cdda                         loaded at 0F490000h - 0F4E1000h
+foo_uie_albumlist                loaded at 04EB0000h - 04EF3000h
+foo_w7shell                      loaded at 07060000h - 0709C000h
+foo_audioscrobbler               loaded at 070A0000h - 070D3000h
+foo_freedb2                      loaded at 070E0000h - 07130000h
+foo_unpack                       loaded at 07130000h - 0717C000h
+foo_input_std                    loaded at 0F200000h - 0F35B000h
+MSACM32                          loaded at 60730000h - 60748000h
+avutil-fb2k-54                   loaded at 6AEE0000h - 6AF6A000h
+avcodec-fb2k-56                  loaded at 66140000h - 6631E000h
+foo_uie_biography                loaded at 071D0000h - 07228000h
+foo_uie_vis_channel_spectrum     loaded at 07250000h - 0728D000h
+foo_uie_lyrics3                  loaded at 07340000h - 073F5000h
+WININET                          loaded at 73750000h - 73A11000h
+foo_upnp                         loaded at 0F5D0000h - 0F7D7000h
+foo_rgscan                       loaded at 07460000h - 074C1000h
+foo_uie_elplaylist               loaded at 07500000h - 07573000h
+foo_dsp_eq                       loaded at 072F0000h - 07327000h
+foo_musicbrainz                  loaded at 0F4F0000h - 0F54B000h
+foo_uie_panel_splitter           loaded at 075C0000h - 07619000h
+foo_discogs                      loaded at 076E0000h - 07757000h
+foo_converter                    loaded at 07760000h - 077E8000h
+foo_uie_wsh_panel_mod            loaded at 07840000h - 07906000h
+foo_playcount                    loaded at 07680000h - 076BE000h
+foo_ui_columns                   loaded at 07B70000h - 07D1C000h
+urlmon                           loaded at 72440000h - 725DC000h
+USP10                            loaded at 6A1B0000h - 6A1C7000h
+iertutil                         loaded at 72150000h - 72363000h
+foo_albumlist                    loaded at 07910000h - 0796B000h
+clbcatq                          loaded at 75DC0000h - 75E43000h
+MMDevApi                         loaded at 6A2D0000h - 6A329000h
+DEVOBJ                           loaded at 6C160000h - 6C182000h
+PROPSYS                          loaded at 6D410000h - 6D574000h
+AUDIOSES                         loaded at 59900000h - 599D7000h
+wintypes                         loaded at 60920000h - 609F1000h
+AVRT                             loaded at 60610000h - 60619000h
+frontend_direct2d                loaded at 0F550000h - 0F591000h
+d2d1                             loaded at 084E0000h - 089E0000h
+frontend_direct3d9               loaded at 089E0000h - 08A30000h
+d3d9                             loaded at 66C20000h - 66D82000h
+d3dx9_42                         loaded at 08A30000h - 08C15000h
+SciLexer                         loaded at 08C20000h - 08CC2000h
+Windows.UI                       loaded at 59830000h - 598F5000h
+TextInputFramework               loaded at 60CC0000h - 60D27000h
+CoreUIComponents                 loaded at 60A90000h - 60CB7000h
+CoreMessaging                    loaded at 60A00000h - 60A8F000h
+ntmarta                          loaded at 6F010000h - 6F038000h
+usermgrcli                       loaded at 66860000h - 66870000h
+appresolver                      loaded at 08E10000h - 08E91000h
+Bcp47Langs                       loaded at 668B0000h - 66900000h
+elscore                          loaded at 66890000h - 668A3000h
+USERENV                          loaded at 719C0000h - 719E2000h
+cryptsp                          loaded at 733D0000h - 733E3000h
+MrmCoreR                         loaded at 090B0000h - 09184000h
+SLC                              loaded at 09190000h - 091B2000h
+sppc                             loaded at 091C0000h - 091DD000h
+LINKINFO                         loaded at 69510000h - 6951D000h
+ntshrui                          loaded at 09490000h - 09556000h
+srvcli                           loaded at 71910000h - 7192C000h
+cscapi                           loaded at 6B5A0000h - 6B5AF000h
+policymanager                    loaded at 5DF30000h - 5DF94000h
+msvcp110_win                     loaded at 5DEC0000h - 5DF26000h
+bcrypt                           loaded at 73390000h - 733A8000h
+dataexchange                     loaded at 676B0000h - 676F3000h
+d3d11                            loaded at 67840000h - 67A92000h
+dcomp                            loaded at 64CA0000h - 64D8B000h
+dxgi                             loaded at 677B0000h - 6783A000h
+twinapi.appcore                  loaded at 634F0000h - 63626000h
+sxs                              loaded at 68780000h - 68806000h
+tiptsf                           loaded at 0CBE0000h - 0CC61000h
+AhAScr                           loaded at 64F00000h - 64FA2000h
+VERSION                          loaded at 72C10000h - 72C18000h
+aswCmnBS                         loaded at 732D0000h - 7332D000h
+aswCmnIS                         loaded at 73090000h - 730E3000h
+aswCmnOS                         loaded at 730F0000h - 73115000h
+MSVCP140                         loaded at 73130000h - 7319D000h
+VCRUNTIME140                     loaded at 733B0000h - 733C4000h
+Aavm4h                           loaded at 71D40000h - 72150000h
+SETUPAPI                         loaded at 76320000h - 7673A000h
+NETAPI32                         loaded at 71A90000h - 71AA3000h
+commchannel                      loaded at 72F90000h - 73077000h
+JsonRpcServer                    loaded at 72410000h - 72438000h
+aswIP                            loaded at 72F70000h - 72F87000h
+log                              loaded at 73330000h - 73354000h
+aswEngLdr                        loaded at 72CD0000h - 72CE5000h
+AavmRpch                         loaded at 71960000h - 719BA000h
+ashBase                          loaded at 731A0000h - 732CD000h
+WINTRUST                         loaded at 76750000h - 76794000h
+ashTask                          loaded at 71C60000h - 71CD3000h
+aswAux                           loaded at 71AB0000h - 71B8E000h
+module_lifetime                  loaded at 73120000h - 7312D000h
+DNSAPI                           loaded at 72B90000h - 72C0F000h
+NSI                              loaded at 73EC0000h - 73EC7000h
+libcrypto-1_1                    loaded at 72D60000h - 72F67000h
+libssl-1_1                       loaded at 72CF0000h - 72D51000h
+SAMCLI                           loaded at 71940000h - 71955000h
+NETUTILS                         loaded at 71930000h - 7193B000h
+jscript                          loaded at 62B80000h - 62C25000h
+amsi                             loaded at 617B0000h - 617BD000h
+aswAMSI                          loaded at 0F1C0000h - 0F1FF000h
+aswProperty                      loaded at 72AE0000h - 72B8F000h
+mshtml                           loaded at 51C80000h - 53003000h
+msiso                            loaded at 674A0000h - 67501000h
+srpapi                           loaded at 0D540000h - 0D563000h
+wshom                            loaded at 5CD40000h - 5CD63000h
+MPR                              loaded at 6F2A0000h - 6F2B6000h
+ScrRun                           loaded at 0D570000h - 0D59B000h
+msscript                         loaded at 57C90000h - 57CAC000h
+vbscript                         loaded at 0D700000h - 0D77E000h
+coml2                            loaded at 745C0000h - 7461E000h
+WLDP                             loaded at 60DB0000h - 60DC0000h
+dsound                           loaded at 65F90000h - 6600E000h
+dhcpcsvc                         loaded at 718D0000h - 718E4000h
+explorerframe                    loaded at 10C00000h - 1103A000h
+nvldumd                          loaded at 5DC90000h - 5DD54000h
+rsaenh                           loaded at 73360000h - 7338F000h
+nvd3dum                          loaded at 5CDE0000h - 5DC84000h
+nvspcap                          loaded at 132D0000h - 13434000h
+nvapi                            loaded at 13600000h - 139D9000h
+nvSCPAPI                         loaded at 5CBA0000h - 5CC6C000h
+ondemandconnroutehelper          loaded at 6C3D0000h - 6C3E5000h
+WINNSI                           loaded at 71870000h - 71878000h
+mdnsNSP                          loaded at 6B810000h - 6B831000h
+rasadhlp                         loaded at 6D1A0000h - 6D1A8000h
+fwpuclnt                         loaded at 71880000h - 718CA000h
+dhcpcsvc6                        loaded at 718F0000h - 71903000h
+schannel                         loaded at 6B610000h - 6B676000h
+mskeyprotect                     loaded at 6B600000h - 6B610000h
+ncrypt                           loaded at 6A5F0000h - 6A610000h
+NTASN1                           loaded at 688F0000h - 6891C000h
+DPAPI                            loaded at 6D190000h - 6D198000h
+cryptnet                         loaded at 6B7B0000h - 6B7D5000h
+webio                            loaded at 6B4E0000h - 6B556000h
+ncryptsslp                       loaded at 6B5E0000h - 6B5FB000h
+
+Stack dump analysis:
+Address: 7613CBB2h (KERNELBASE+ECBB2h), symbol: "RaiseException" (+62h)
+Address: 07C4C8B0h (foo_ui_columns+DC8B0h), symbol: "foobar2000_get_interface" (+11FD0h)
+Address: 73F1FEE9h (USER32+2FEE9h), symbol: "GetQueueStatus" (+189h)
+Address: 77455870h (ntdll+85870h), symbol: "NtdllDialogWndProc_W" (+120h)
+Address: 73F1FEFFh (USER32+2FEFFh), symbol: "GetQueueStatus" (+19Fh)
+Address: 73F1622Bh (USER32+2622Bh), symbol: "SetWindowLongW" (+1BBh)
+Address: 0F192775h (shared+2775h), symbol: "uBugCheck" (+20h)
+Address: 0129197Ch (foobar2000+6197Ch)
+Address: 0F1A92A8h (shared+192A8h), symbol: "CreateFileAbortable" (+E6E3h)
+Address: 0F1AFDE8h (shared+1FDE8h), symbol: "CreateFileAbortable" (+15223h)
+Address: 012919D6h (foobar2000+619D6h)
+Address: 0129197Ch (foobar2000+6197Ch)
+Address: 01352528h (foobar2000+122528h)
+Address: 01390C98h (foobar2000+160C98h)
+Address: 73F2342Bh (USER32+3342Bh), symbol: "AddClipboardFormatListener" (+126Bh)
+Address: 0129197Ch (foobar2000+6197Ch)
+Address: 73F15893h (USER32+25893h), symbol: "DispatchMessageW" (+8B3h)
+Address: 0129197Ch (foobar2000+6197Ch)
+Address: 74522ADCh (win32u+2ADCh), symbol: "NtUserCallNextHookEx" (+Ch)
+Address: 73F1E321h (USER32+2E321h), symbol: "CallNextHookEx" (+171h)
+Address: 73F1E32Fh (USER32+2E32Fh), symbol: "CallNextHookEx" (+17Fh)
+Address: 73F15724h (USER32+25724h), symbol: "DispatchMessageW" (+744h)
+Address: 0129197Ch (foobar2000+6197Ch)
+Address: 0129197Ch (foobar2000+6197Ch)
+Address: 73F24FA0h (USER32+34FA0h), symbol: "WindowFromPoint" (+650h)
+Address: 73F154EAh (USER32+254EAh), symbol: "DispatchMessageW" (+50Ah)
+Address: 0129197Ch (foobar2000+6197Ch)
+Address: 774558B0h (ntdll+858B0h), symbol: "NtdllDialogWndProc_W" (+160h)
+Address: 73F1F39Eh (USER32+2F39Eh), symbol: "IsThreadDesktopComposited" (+2BEh)
+Address: 73F24FA0h (USER32+34FA0h), symbol: "WindowFromPoint" (+650h)
+Address: 73F24FA0h (USER32+34FA0h), symbol: "WindowFromPoint" (+650h)
+Address: 73F1F4B9h (USER32+2F4B9h), symbol: "GetWindowThreadProcessId" (+109h)
+Address: 0129197Ch (foobar2000+6197Ch)
+Address: 7744411Dh (ntdll+7411Dh), symbol: "KiUserCallbackDispatcher" (+4Dh)
+Address: 77444050h (ntdll+74050h), symbol: "KiUserApcDispatcher" (+70h)
+Address: 0129197Ch (foobar2000+6197Ch)
+Address: 774558B0h (ntdll+858B0h), symbol: "NtdllDialogWndProc_W" (+160h)
+Address: 73F5BD0Ch (USER32+6BD0Ch), symbol: "TrackPopupMenu" (+1Ch)
+Address: 07BACB0Eh (foo_ui_columns+3CB0Eh)
+Address: 07BAAFB0h (foo_ui_columns+3AFB0h)
+Address: 77410AD7h (ntdll+40AD7h), symbol: "RtlFreeHeap" (+217h)
+Address: 013B0D80h (foobar2000+180D80h)
+Address: 07C69560h (foo_ui_columns+F9560h), symbol: "foobar2000_get_interface" (+2EC80h)
+Address: 073918AEh (foo_uie_lyrics3+518AEh), symbol: "foobar2000_get_interface" (+1079Eh)
+Address: 07347A45h (foo_uie_lyrics3+7A45h)
+Address: 073918AEh (foo_uie_lyrics3+518AEh), symbol: "foobar2000_get_interface" (+1079Eh)
+Address: 073630CAh (foo_uie_lyrics3+230CAh)
+Address: 07361C58h (foo_uie_lyrics3+21C58h)
+Address: 073C8E84h (foo_uie_lyrics3+88E84h), symbol: "foobar2000_get_interface" (+47D74h)
+Address: 073AB77Ch (foo_uie_lyrics3+6B77Ch), symbol: "foobar2000_get_interface" (+2A66Ch)
+Address: 07397DB2h (foo_uie_lyrics3+57DB2h), symbol: "foobar2000_get_interface" (+16CA2h)
+Address: 07358D8Dh (foo_uie_lyrics3+18D8Dh)
+Address: 013B0384h (foobar2000+180384h)
+Address: 073E3000h (foo_uie_lyrics3+A3000h), symbol: "foobar2000_get_interface" (+61EF0h)
+Address: 07C84038h (foo_ui_columns+114038h), symbol: "foobar2000_get_interface" (+49758h)
+Address: 073C8E84h (foo_uie_lyrics3+88E84h), symbol: "foobar2000_get_interface" (+47D74h)
+Address: 073C931Ch (foo_uie_lyrics3+8931Ch), symbol: "foobar2000_get_interface" (+4820Ch)
+Address: 774109DBh (ntdll+409DBh), symbol: "RtlFreeHeap" (+11Bh)
+Address: 77412EEAh (ntdll+42EEAh), symbol: "RtlAllocateHeap" (+12Ah)
+Address: 74522DACh (win32u+2DACh), symbol: "NtGdiCreateCompatibleBitmap" (+Ch)
+Address: 76857EC4h (gdi32full+B7EC4h), symbol: "CreateCompatibleBitmap" (+D4h)
+Address: 77412EEAh (ntdll+42EEAh), symbol: "RtlAllocateHeap" (+12Ah)
+Address: 774109DBh (ntdll+409DBh), symbol: "RtlFreeHeap" (+11Bh)
+Address: 7740F030h (ntdll+3F030h), symbol: "RtlDeactivateActivationContextUnsafeFast" (+A0h)
+Address: 7740A043h (ntdll+3A043h), symbol: "RtlActivateActivationContextUnsafeFast" (+73h)
+Address: 77412DFEh (ntdll+42DFEh), symbol: "RtlAllocateHeap" (+3Eh)
+Address: 73F2342Bh (USER32+3342Bh), symbol: "AddClipboardFormatListener" (+126Bh)
+Address: 07BAAFB0h (foo_ui_columns+3AFB0h)
+Address: 73F15893h (USER32+25893h), symbol: "DispatchMessageW" (+8B3h)
+Address: 07BAAFB0h (foo_ui_columns+3AFB0h)
+Address: 07BAAFB0h (foo_ui_columns+3AFB0h)
+Address: 073CA1B0h (foo_uie_lyrics3+8A1B0h), symbol: "foobar2000_get_interface" (+490A0h)
+Address: 73F15724h (USER32+25724h), symbol: "DispatchMessageW" (+744h)
+Address: 07BAAFB0h (foo_ui_columns+3AFB0h)
+Address: 07BAAFB0h (foo_ui_columns+3AFB0h)
+Address: 73F24FA0h (USER32+34FA0h), symbol: "WindowFromPoint" (+650h)
+Address: 73F0B317h (USER32+1B317h), symbol: "CallWindowProcW" (+97h)
+Address: 07BAAFB0h (foo_ui_columns+3AFB0h)
+Address: 0108F8D6h (foo_ui_hacks+1F8D6h), symbol: "foobar2000_get_interface" (+124A6h)
+Address: 07BAAFB0h (foo_ui_columns+3AFB0h)
+Address: 73F165A2h (USER32+265A2h), symbol: "SetWindowLongW" (+532h)
+Address: 73F165B3h (USER32+265B3h), symbol: "SetWindowLongW" (+543h)
+Address: 73F165CDh (USER32+265CDh), symbol: "SetWindowLongW" (+55Dh)
+Address: 7740F030h (ntdll+3F030h), symbol: "RtlDeactivateActivationContextUnsafeFast" (+A0h)
+Address: 73F24FA0h (USER32+34FA0h), symbol: "WindowFromPoint" (+650h)
+Address: 7740A043h (ntdll+3A043h), symbol: "RtlActivateActivationContextUnsafeFast" (+73h)
+Address: 075F92DFh (foo_uie_panel_splitter+392DFh), symbol: "foobar2000_get_interface" (+264CFh)
+Address: 73F2342Bh (USER32+3342Bh), symbol: "AddClipboardFormatListener" (+126Bh)
+Address: 73F15893h (USER32+25893h), symbol: "DispatchMessageW" (+8B3h)
+Address: 0FCF5CDAh (foo_wave_seekbar+5CDAh)
+Address: 0FDF6B24h (foo_wave_seekbar+106B24h), symbol: "g_gdi_entrypoint" (+A0A24h)
+Address: 0707D866h (foo_w7shell+1D866h), symbol: "foobar2000_get_interface" (+146E6h)
+Address: 73F15724h (USER32+25724h), symbol: "DispatchMessageW" (+744h)
+Address: 73F24FA0h (USER32+34FA0h), symbol: "WindowFromPoint" (+650h)
+Address: 73F154EAh (USER32+254EAh), symbol: "DispatchMessageW" (+50Ah)
+Address: 774558B0h (ntdll+858B0h), symbol: "NtdllDialogWndProc_W" (+160h)
+Address: 73F24FA0h (USER32+34FA0h), symbol: "WindowFromPoint" (+650h)
+Address: 73F1F4B9h (USER32+2F4B9h), symbol: "GetWindowThreadProcessId" (+109h)
+Address: 013B05B8h (foobar2000+1805B8h)
+Address: 7744411Dh (ntdll+7411Dh), symbol: "KiUserCallbackDispatcher" (+4Dh)
+Address: 77444050h (ntdll+74050h), symbol: "KiUserApcDispatcher" (+70h)
+Address: 774558B0h (ntdll+858B0h), symbol: "NtdllDialogWndProc_W" (+160h)
+Address: 73F20A90h (USER32+30A90h), symbol: "SendMessageTimeoutW" (+F0h)
+Address: 013B0384h (foobar2000+180384h)
+Address: 73F209C2h (USER32+309C2h), symbol: "SendMessageTimeoutW" (+22h)
+Address: 10D3CC6Bh (explorerframe+13CC6Bh), symbol: "DllGetVersion" (+1AB8Bh)
+Address: 013B0384h (foobar2000+180384h)
+Address: 0707EB8Dh (foo_w7shell+1EB8Dh), symbol: "foobar2000_get_interface" (+15A0Dh)
+Address: 0707EC02h (foo_w7shell+1EC02h), symbol: "foobar2000_get_interface" (+15A82h)
+Address: 0707EC35h (foo_w7shell+1EC35h), symbol: "foobar2000_get_interface" (+15AB5h)
+Address: 0707A1F9h (foo_w7shell+1A1F9h), symbol: "foobar2000_get_interface" (+11079h)
+Address: 0708DE00h (foo_w7shell+2DE00h), symbol: "foobar2000_get_interface" (+24C80h)
+Address: 012B14B6h (foobar2000+814B6h)
+Address: 01255A00h (foobar2000+25A00h)
+Address: 013B2E5Eh (foobar2000+182E5Eh)
+Address: 070850B4h (foo_w7shell+250B4h), symbol: "foobar2000_get_interface" (+1BF34h)
+Address: 01354B86h (foobar2000+124B86h)
+Address: 012B2926h (foobar2000+82926h)
+Address: 73F23A30h (USER32+33A30h), symbol: "DestroyWindow" (+0h)
+Address: 0129D8E6h (foobar2000+6D8E6h)
+Address: 012B3606h (foobar2000+83606h)
+Address: 01355238h (foobar2000+125238h)
+Address: 012B3646h (foobar2000+83646h)
+Address: 0128FA8Eh (foobar2000+5FA8Eh)
+Address: 01343BB8h (foobar2000+113BB8h)
+Address: 01377F58h (foobar2000+147F58h)
+Address: 77412EEAh (ntdll+42EEAh), symbol: "RtlAllocateHeap" (+12Ah)
+Address: 01377F3Ch (foobar2000+147F3Ch)
+Address: 01377F3Ch (foobar2000+147F3Ch)
+Address: 013883CCh (foobar2000+1583CCh)
+Address: 0134909Bh (foobar2000+11909Bh)
+Address: 01346410h (foobar2000+116410h)
+Address: 0134909Bh (foobar2000+11909Bh)
+Address: 01346C05h (foobar2000+116C05h)
+Address: 01343BB8h (foobar2000+113BB8h)
+Address: 0F192846h (shared+2846h), symbol: "uPrintCrashInfo_OnEvent" (+B9h)
+Address: 0137DB90h (foobar2000+14DB90h)
+Address: 01343BB8h (foobar2000+113BB8h)
+Address: 0136250Dh (foobar2000+13250Dh)
+Address: 0128FC3Eh (foobar2000+5FC3Eh)
+Address: 01230000h (foobar2000+0h)
+Address: 01343BB8h (foobar2000+113BB8h)
+Address: 01345DB6h (foobar2000+115DB6h)
+Address: 01341DA6h (foobar2000+111DA6h)
+Address: 01341DA0h (foobar2000+111DA0h)
+Address: 0136CB68h (foobar2000+13CB68h)
+Address: 0136CB6Ch (foobar2000+13CB6Ch)
+Address: 013691F3h (foobar2000+1391F3h)
+Address: 01346410h (foobar2000+116410h)
+Address: 01341DA0h (foobar2000+111DA0h)
+Address: 0136282Bh (foobar2000+13282Bh)
+Address: 01343B65h (foobar2000+113B65h)
+Address: 01230000h (foobar2000+0h)
+Address: 01343BB8h (foobar2000+113BB8h)
+Address: 01343BB8h (foobar2000+113BB8h)
+Address: 61B428DAh (DSOUND+28DAh), symbol: "DirectSoundCaptureCreate8" (+85Ah)
+Address: 01346410h (foobar2000+116410h)
+Address: 74048744h (KERNEL32+18744h), symbol: "BaseThreadInitThunk" (+24h)
+Address: 74048720h (KERNEL32+18720h), symbol: "BaseThreadInitThunk" (+0h)
+Address: 7743582Dh (ntdll+6582Dh), symbol: "RtlGetAppContainerNamedObjectPath" (+FDh)
+Address: 77449FD0h (ntdll+79FD0h), symbol: "wcstombs" (+90h)
+Address: 774357FDh (ntdll+657FDh), symbol: "RtlGetAppContainerNamedObjectPath" (+CDh)
+Address: 77456394h (ntdll+86394h), symbol: "RtlCaptureContext" (+104h)
+Address: 01343BB8h (foobar2000+113BB8h)
+
+Environment:
+App: foobar2000 v1.3.9
+UI: Columns UI 0.3.9.1
+
+Components:
+Core (2015-11-02 13:34:35 UTC)
+    foobar2000 core 1.3.9
+foo_albumlist.dll (2015-11-02 13:31:05 UTC)
+    Album List 4.5
+foo_audioscrobbler.dll (2015-12-10 11:37:56 UTC)
+    Audioscrobbler 1.4.7
+foo_cdda.dll (2015-11-02 13:30:27 UTC)
+    CD Audio Decoder 3.0
+foo_converter.dll (2015-11-02 13:30:34 UTC)
+    Converter 1.5
+foo_discogs.dll (2016-04-25 11:10:29 UTC)
+    Discogs Tagger 1.56
+foo_dsp_eq.dll (2015-11-02 13:30:54 UTC)
+    Equalizer 1.0
+foo_dsp_std.dll (2015-11-02 13:30:41 UTC)
+    Standard DSP Array 1.3.1
+foo_fileops.dll (2015-11-02 13:30:07 UTC)
+    File Operations 2.2.1
+foo_freedb2.dll (2015-11-02 13:30:17 UTC)
+    Online Tagger 0.7
+foo_input_std.dll (2015-11-02 13:34:34 UTC)
+    Standard Input Array 1.0
+foo_jscript_panel.dll (2016-01-06 06:28:56 UTC)
+    JScript Panel 1.0.7
+foo_lyricsource.dll (2016-02-13 19:29:30 UTC)
+    Custom lyrics source 0.1
+foo_musicbrainz.dll (2016-01-13 16:28:35 UTC)
+    MusicBrainz Tagger 0.3.1
+foo_playcount.dll (2017-01-06 14:12:55 UTC)
+    Playback Statistics 3.0.2
+foo_quicksearch.dll (2011-06-09 10:16:08 UTC)
+    Quick Search Toolbar 3.2
+foo_rgscan.dll (2015-11-02 13:31:04 UTC)
+    ReplayGain Scanner 2.2.2
+foo_ui_columns.dll (2015-12-10 07:44:17 UTC)
+    Columns UI 0.3.9.1
+foo_ui_hacks.dll (2011-08-18 11:09:18 UTC)
+    UI Hacks 2011-08-18
+foo_ui_std.dll (2015-11-02 13:34:34 UTC)
+    Default User Interface 0.9.5
+foo_uie_albumlist.dll (2016-01-06 07:13:36 UTC)
+    Album list panel 0.3.5
+foo_uie_biography.dll (2010-12-11 13:47:22 UTC)
+    Biography View 0.4.2.4
+foo_uie_elplaylist.dll (2010-10-31 02:51:16 UTC)
+    ELPlaylist 0.6.9.1.2(beta)
+foo_uie_lyrics3.dll (2015-02-16 19:26:14 UTC)
+    Lyric Show Panel 3 0.4.5
+foo_uie_panel_splitter.dll (2015-12-24 08:49:45 UTC)
+    Panel Stack Splitter 0.3.8.3(alpha)
+foo_uie_vis_channel_spectrum.dll (2016-01-06 06:53:19 UTC)
+    Channel Spectrum panel 0.17.2
+foo_uie_wsh_panel_mod.dll (2011-08-05 16:54:53 UTC)
+    WSH Panel Mod 1.4.4 
+foo_unpack.dll (2015-11-02 13:30:41 UTC)
+    ZIP/GZIP/RAR Reader 1.7.1
+foo_upnp.dll (2015-12-10 07:32:05 UTC)
+    UPnP/DLNA Renderer, Server, Control Point 0.99.49
+foo_w7shell.dll (2012-02-05 10:20:51 UTC)
+    Windows 7 integration 0.2.9.1
+foo_wave_seekbar.dll (2015-12-10 07:30:07 UTC)
+    Waveform seekbar 0.2.45
+
+Recent events:
+w7shell: GDI+ initialized
+w7shell: COM initialized
+w7shell: running on Windows NT 6.3.9600 
+w7shell: DWM composition enabled
+w7shell: WA_DISALLOW_PEEK successfully set
+w7shell: WA_DISALLOW_PEEK successfully set
+w7shell: WA_HAS_ICONIC_BITMAP successfully set
+w7shell: WA_FORCE_ICONIC_REPRESENTATION successfully set
+w7shell: failed to set WA_FLIP3D_POLICY: 0xFFFFFFFF80070057
+Error: Image draw failed (h_iml)
+Seekbar: taking Direct3D9 path.
+foo_upnp: created 12896 path registry entries in 0.141s
+Seekbar: Frontend initialized.
+w7shell: all green
+initquit::init exit
+Startup time : 0:17.944504
+foo_upnp: loaded Media Library tree in 2.571s
+Opening track for playback: "D:\Music\Albums\New Stuff\[Doki] Death Note Original Soundtrack (FLAC) [E8AED97C].zip|[Doki] Death Note Original Soundtrack (FLAC)/02 - Ž–Œ.flac"
+Wave cache: finished analysis of "D:\Music\Albums\New Stuff\[Doki] Death Note Original Soundtrack (FLAC) [E8AED97C].zip|[Doki] Death Note Original Soundtrack (FLAC)/02 - Ž–Œ.flac"
+Audioscrobbler: Handshake successful.
+Opening track for playback: "D:\Music\Albums\New Stuff\JAY-Z - 4;44 (2017) - WEB V0-20170705T160600Z-001.zip|JAY-Z - 4_44 (2017) - WEB V0/01 - Kill Jay Z.mp3"
+Wave cache: finished analysis of "D:\Music\Albums\New Stuff\JAY-Z - 4;44 (2017) - WEB V0-20170705T160600Z-001.zip|JAY-Z - 4_44 (2017) - WEB V0/01 - Kill Jay Z.mp3"
+Opening track for playback: "D:\Music\Albums\New Stuff\JAY-Z - 4;44 (2017) - WEB V0-20170705T160600Z-001.zip|JAY-Z - 4_44 (2017) - WEB V0/02 - The Story of O.J..mp3"
+Audioscrobbler: Submitting track...
+Audioscrobbler: Submission succeeded.
+Wave cache: finished analysis of "D:\Music\Albums\New Stuff\JAY-Z - 4;44 (2017) - WEB V0-20170705T160600Z-001.zip|JAY-Z - 4_44 (2017) - WEB V0/02 - The Story of O.J..mp3"
+Error: Image draw failed (h_iml)
+Error: Image draw failed (h_iml)
+Error: Image draw failed (h_iml)
+Shutting down...
+
+
+Machine specifications:
+OS: Windows 6.3.9600 x64
+CPU: Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz, features: MMX SSE SSE2 SSE3 SSE4.1 SSE4.2
+CPU threads: 4
+Audio: Speakers (High Definition Audio Device); Digital Audio (S/PDIF) (High Definition Audio Device); R221Q-4 (NVIDIA High Definition Audio); Digital Audio (S/PDIF) (High Definition Audio Device)
