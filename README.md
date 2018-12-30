@@ -5,7 +5,7 @@ foobar2000 UI theme based on ncmpcpp.
 
 A custom theme for the foobar2000 music player. I completely ripped off the color scheme from the ncurses based MPD client (ncmpcpp) music player for UNIX systems, hence the name.
 
-Written in 2015 during highschool. Obviously very badly written.
+Written in 2015 during highschool. Obviously very badly written and badly maintained. Judge all you want.
 
 ## To-do
 * clean up codebase to not include the foobar2k client itself, only files related to the theme.
