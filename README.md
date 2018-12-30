@@ -1,7 +1,7 @@
 # ncmpcpp-2k-rw
 foobar2000 UI theme based on ncmpcpp.
 
-![alt text](https://imgur.com/eQqEArP.jpg "with switchable side panels!")
+![alt text](https://imgur.com/jlccap7.jpg "with switchable side panels!")
 
 A custom theme for the foobar2000 music player. I completely ripped off the color scheme from the ncurses based MPD client (ncmpcpp) music player for UNIX systems, hence the name.
 
