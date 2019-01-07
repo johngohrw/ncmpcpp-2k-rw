@@ -5,7 +5,7 @@ foobar2000 UI theme based on ncmpcpp.
 
 A custom theme for the foobar2000 music player. I ripped off the layout and color scheme from the ncurses based MPD client (ncmpcpp) music player for UNIX systems, hence the name.
 
-Written in 2015 during highschool. Obviously very badly written and badly maintained. I don't recommend that you clone this unless you are familiar with foobar2000's theming system, Columns UI, and ES Playlist. You could download the .zip and use it on your own media library as it comes with the foobar2000 client, but the scrap files are still there. 
+Written in 2014 during highschool. Obviously very badly written and badly maintained. I don't recommend that you clone this unless you are familiar with foobar2000's theming system, Columns UI, and ES Playlist. You could download the .zip and use it on your own media library as it comes with the foobar2000 client, but the scrap files are still there. 
 
 In the future I'd hope to re-release this as a true theme package that can be applied to your existing foobar configurations.
 
